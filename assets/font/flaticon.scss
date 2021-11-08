@@ -1,0 +1,65 @@
+$flaticon-font: "flaticon";
+
+@font-face {
+    font-family: $flaticon-font;
+    src: url("./flaticon.ttf?c993e26b2e15adc7c0bd9c8af87073cc") format("truetype"),
+url("./flaticon.woff?c993e26b2e15adc7c0bd9c8af87073cc") format("woff"),
+url("./flaticon.woff2?c993e26b2e15adc7c0bd9c8af87073cc") format("woff2"),
+url("./flaticon.eot?c993e26b2e15adc7c0bd9c8af87073cc#iefix") format("embedded-opentype"),
+url("./flaticon.svg?c993e26b2e15adc7c0bd9c8af87073cc#flaticon") format("svg");
+}
+
+i[class^="flaticon-"]:before, i[class*=" flaticon-"]:before {
+    font-family: flaticon !important;
+    font-style: normal;
+    font-weight: normal !important;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+$flaticon-map: (
+    "figma": "\f101",
+    "sketch-symbol": "\f102",
+    "photoshop": "\f103",
+    "illustrator": "\f104",
+    "experience": "\f105",
+    "indesign": "\f106",
+    "html": "\f107",
+    "css": "\f108",
+    "premier": "\f109",
+    "wordpress": "\f10a",
+);
+
+.flaticon-figma:before {
+    content: map-get($flaticon-map, "figma");
+}
+.flaticon-sketch-symbol:before {
+    content: map-get($flaticon-map, "sketch-symbol");
+}
+.flaticon-photoshop:before {
+    content: map-get($flaticon-map, "photoshop");
+}
+.flaticon-illustrator:before {
+    content: map-get($flaticon-map, "illustrator");
+}
+.flaticon-experience:before {
+    content: map-get($flaticon-map, "experience");
+}
+.flaticon-indesign:before {
+    content: map-get($flaticon-map, "indesign");
+}
+.flaticon-html:before {
+    content: map-get($flaticon-map, "html");
+}
+.flaticon-css:before {
+    content: map-get($flaticon-map, "css");
+}
+.flaticon-premier:before {
+    content: map-get($flaticon-map, "premier");
+}
+.flaticon-wordpress:before {
+    content: map-get($flaticon-map, "wordpress");
+}
