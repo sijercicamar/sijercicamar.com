@@ -487,7 +487,7 @@ export const projects: Project[] = [
     slug: "evionor",
     title: "Evionor",
     tagline: "Premium EV charging hardware, presented like the product it is",
-    category: "Webflow",
+    category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
     tags: ["E-commerce", "Shopify", "CRO", "B2C & B2B", "Figma", "Landing Pages", "Hungary"],
