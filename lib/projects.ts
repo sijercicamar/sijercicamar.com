@@ -466,6 +466,7 @@ export const projects: Project[] = [
     tagline: "A community travel platform designed to make home exchange feel effortless",
     category: "UX/UI Design",
     year: "2024",
+    coverImage: "/projects/flappingo.webp",
     liveUrl: "https://www.flappingo.com/home/hosts",
     logoUrl: "https://logo.clearbit.com/flappingo.com",
     tags: ["Web App", "Mobile", "Community Platform", "Travel", "UX Design", "Figma"],
