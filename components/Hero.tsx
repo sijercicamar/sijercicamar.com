@@ -44,12 +44,17 @@ export default function Hero() {
           <div className="hidden md:block relative self-end">
             {/* bottom fade to blend with bg */}
             <div
-              className="absolute bottom-0 inset-x-0 h-24 pointer-events-none z-10"
-              style={{ background: "linear-gradient(to top, var(--color-bg), transparent)" }}
+              className="absolute bottom-0 inset-x-0 h-32 pointer-events-none z-10"
+              style={{ background: "linear-gradient(to top, var(--color-bg) 30%, transparent)" }}
             />
-            {/* subtle neon glow at feet */}
+            {/* large ambient glow rising behind the figure */}
             <div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-10 blur-2xl opacity-30 z-0"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-[75%] blur-3xl opacity-[0.18] z-0 pointer-events-none"
+              style={{ background: "radial-gradient(ellipse at 50% 90%, #57ff8c 0%, transparent 65%)" }}
+            />
+            {/* tight floor glow — intense pool at feet */}
+            <div
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[85%] h-16 blur-2xl opacity-60 z-0 pointer-events-none"
               style={{ background: "radial-gradient(ellipse, #57ff8c, transparent 70%)" }}
             />
             <Image
@@ -58,7 +63,12 @@ export default function Hero() {
               width={620}
               height={680}
               className="relative z-[5] w-full h-auto object-contain object-bottom select-none"
+              style={{
+                filter:
+                  "drop-shadow(0 0 18px rgba(87,255,140,0.28)) drop-shadow(0 0 55px rgba(87,255,140,0.10))",
+              }}
               priority
+              quality={95}
               draggable={false}
             />
           </div>
