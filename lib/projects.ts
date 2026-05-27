@@ -463,26 +463,27 @@ export const projects: Project[] = [
   {
     slug: "flappingo",
     title: "FlappinGo",
-    tagline: "A mobile arcade game where the entire UI lives inside the gameplay",
+    tagline: "A community travel platform designed to make home exchange feel effortless",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "https://apps.apple.com/us/app/flappingo/id6744437866",
-    logoUrl: "https://logo.clearbit.com/flappingo.app",
-    tags: ["Game Design", "Mobile", "iOS", "Interaction Design", "UI Design"],
-    role: "UI/UX Designer",
+    liveUrl: "https://www.flappingo.com/home/hosts",
+    logoUrl: "https://logo.clearbit.com/flappingo.com",
+    tags: ["Web App", "Mobile", "Community Platform", "Travel", "UX Design", "Figma"],
+    role: "UX/UI Designer",
     overview:
-      "FlappinGo is a casual arcade game for iOS built around a deceptively simple mechanic: tap left or right to navigate, collect all bubbles to complete a level. The design challenge was making the game immediately understood — with no tutorial, no text, no onboarding — while building enough visual feedback to keep players engaged across dozens of levels.",
+      "FlappinGo is a home exchange and hospitality-sharing platform connecting travellers with hosts across Europe. The product spans a responsive web app and a native mobile experience, built around the idea that meaningful travel doesn't have to be expensive — it requires trust, transparency, and a design system that makes hosts and guests feel equally comfortable. The platform supports listings, traveller profiles, exchange coordination, local meetups, and community events.",
     challenge:
-      "Game UI operates under a different constraint than most product design: every interface element competes with the game itself for attention. Traditional HUDs — health bars, score counters, level indicators — can make a minimal game feel cluttered. The challenge was designing a UI that communicates everything the player needs to know without ever feeling like an overlay on top of the experience.",
+      "Home exchange platforms live or die on trust. Hosts need to feel confident about who is coming into their space; travellers need enough context to commit to an unfamiliar stay. The design challenge was building an interface that communicates credibility and warmth simultaneously — with verified profiles, clear availability signals, and a browsing experience that feels personal rather than transactional, without the commercial pressure of a booking platform.",
     solution:
-      "I embedded the interface into the game canvas itself. Progress indicators, bubble collection state, and obstacle feedback are communicated through in-world animations and visual effects rather than static UI elements. The result feels less like 'a game with a HUD' and more like a world that speaks for itself. Smooth micro-animations reward collection and communicate collision state without any text.",
+      "I designed the full product — web and mobile — with a calm, community-first visual language. Host profiles lead with personality: photos, descriptions written in plain language, and explicit availability windows. A badge-based verification system communicates trust without feeling bureaucratic. The exchange flow is structured around mutual agreement rather than instant booking: hosts and travellers coordinate through an in-app messaging layer before confirming. Navigation is organized around the five core actions — Accommodations, Travellers, Exchanges, Meetups, Events — so users always know where they are in the platform.",
     outcome:
-      "Published on the App Store with immediate comprehension — players understand the rules within the first three seconds of play, which is the benchmark for casual game accessibility.",
+      "The platform launched with hosts across Hungary, the UK, Germany, France, and Austria. The community-driven design reduced friction for first-time hosts — the profile setup flow consistently produced complete, detailed listings that gave travellers enough information to reach out with confidence.",
     highlights: [
-      "Zero-text UI design: the game teaches itself through play",
-      "Progress and state communicated through in-world animation",
-      "Micro-animation system for collection, collision, and level completion",
-      "Minimal visual footprint that keeps focus on the gameplay",
+      "Trust-first profile design with verification badges and plain-language host descriptions",
+      "Mutual-agreement exchange flow replacing instant-booking pressure",
+      "Five-section navigation architecture covering the full host-traveller lifecycle",
+      "Responsive web platform with companion mobile app",
+      "Community features: meetups and events alongside accommodation listings",
     ],
   },
 
