@@ -5,8 +5,12 @@ import Image from "next/image"
 import { projects } from "@/lib/projects"
 import type { Project } from "@/lib/projects"
 
-// ── Top 3 for this recruiter target: CRO · Shopify · e-commerce email/LPs ──
-const FEATURED_SLUGS = ["persuava", "evionor", "eldelia"]
+// Ranked by recruiter target (CRO · A/B Testing · Email Design · Shopify · AI):
+// 1. persuava  — CRO + Email Design + AI
+// 2. eldelia   — CRO + A/B Testing
+// 3. evionor   — Shopify + CRO
+// 4. ajandekbar — E-commerce + Conversion Design
+const FEATURED_SLUGS = ["persuava", "eldelia", "evionor", "ajandekbar"]
 
 const categoryPill: Record<string, string> = {
   "UX/UI Design":           "text-accent border-accent/25 bg-accent/5",
@@ -134,8 +138,6 @@ export default function Work() {
 
   const rest = projects.filter((p) => !FEATURED_SLUGS.includes(p.slug))
 
-  const [main, ...side] = featured   // main = Persuava (big left), side = Evionor + Eldelia (right column)
-
   return (
     <section id="work" className="py-32 px-6 border-t border-edge">
       <div className="max-w-6xl mx-auto">
@@ -156,17 +158,11 @@ export default function Work() {
           </Link>
         </div>
 
-        {/* ── featured: asymmetric 2-col ── */}
-        {/* Left card uses portrait aspect to appear tall/prominent; right wraps two landscape cards */}
-        <div className="grid md:grid-cols-[1.35fr_1fr] gap-4 mb-4">
-          {main && (
-            <FeaturedCard project={main} imageAspect="aspect-[4/5]" />
-          )}
-          <div className="flex flex-col gap-4">
-            {side.map((p) => (
-              <FeaturedCard key={p.slug} project={p} imageAspect="aspect-[3/2]" className="flex-1" />
-            ))}
-          </div>
+        {/* ── featured: 2×2 grid, ranked by recruiter relevance ── */}
+        <div className="grid sm:grid-cols-2 gap-4 mb-4">
+          {featured.map((p) => (
+            <FeaturedCard key={p.slug} project={p} />
+          ))}
         </div>
 
         {/* ── divider + "More work" ── */}

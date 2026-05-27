@@ -6,7 +6,12 @@ import Image from "next/image"
 import { projects } from "@/lib/projects"
 import type { Project } from "@/lib/projects"
 
-const FEATURED_SLUGS = ["persuava", "evionor", "eldelia"]
+// Ranked by recruiter target (CRO · A/B Testing · Email Design · Shopify · AI):
+// 1. persuava   — CRO + Email Design + AI
+// 2. eldelia    — CRO + A/B Testing
+// 3. evionor    — Shopify + CRO
+// 4. ajandekbar — E-commerce + Conversion Design
+const FEATURED_SLUGS = ["persuava", "eldelia", "evionor", "ajandekbar"]
 
 const FILTERS = [
   "All",
@@ -177,8 +182,6 @@ export default function WorkGrid() {
     ? projects.filter((p) => !FEATURED_SLUGS.includes(p.slug))
     : projects.filter((p) => p.category === active)
 
-  const [main, ...side] = featured
-
   return (
     <div className="max-w-6xl mx-auto px-6 pb-32">
       {/* Filter tabs */}
@@ -204,16 +207,13 @@ export default function WorkGrid() {
         })}
       </div>
 
-      {/* Featured 3 — only when showing All */}
-      {showFeatured && main && (
+      {/* Featured 4 in 2×2 — only when showing All */}
+      {showFeatured && featured.length > 0 && (
         <>
-          <div className="grid md:grid-cols-[1.35fr_1fr] gap-4 mb-4">
-            <FeaturedCard project={main} imageAspect="aspect-[4/5]" />
-            <div className="flex flex-col gap-4">
-              {side.map((p) => (
-                <FeaturedCard key={p.slug} project={p} imageAspect="aspect-[3/2]" className="flex-1" />
-              ))}
-            </div>
+          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+            {featured.map((p) => (
+              <FeaturedCard key={p.slug} project={p} />
+            ))}
           </div>
 
           <div className="flex items-center gap-4 mt-16 mb-8">
