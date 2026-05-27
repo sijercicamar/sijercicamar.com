@@ -2,15 +2,24 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+  const isHome = pathname === "/";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 32);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  const links = [
+    { label: "Work", href: "/work" },
+    { label: "About", href: isHome ? "#about" : "/#about" },
+    { label: "Contact", href: isHome ? "#contact" : "/#contact" },
+  ];
 
   return (
     <header
@@ -26,20 +35,24 @@ export default function Nav() {
           Amar Sijercic
         </Link>
         <ul className="flex items-center gap-8">
-          {[
-            { label: "Work", href: "#work" },
-            { label: "About", href: "#about" },
-            { label: "Contact", href: "#contact" },
-          ].map(({ label, href }) => (
-            <li key={label}>
-              <a
-                href={href}
-                className="text-sm text-muted hover:text-fg transition-colors duration-200"
-              >
-                {label}
-              </a>
-            </li>
-          ))}
+          {links.map(({ label, href }) => {
+            const isActive =
+              label === "Work" && pathname.startsWith("/work");
+            return (
+              <li key={label}>
+                <Link
+                  href={href}
+                  className={`text-sm transition-colors duration-200 ${
+                    isActive
+                      ? "text-fg"
+                      : "text-muted hover:text-fg"
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
       </nav>
     </header>

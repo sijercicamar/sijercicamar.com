@@ -17,9 +17,17 @@ export default function Work() {
   return (
     <section id="work" className="py-32 px-6">
       <div className="max-w-6xl mx-auto">
-        <div className="flex flex-wrap items-baseline gap-3 mb-20">
-          <h2 className="text-3xl font-semibold text-fg">Selected Work</h2>
-          <span className="text-sm text-muted">— {Object.values(projectsByCategory).flat().length} projects</span>
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-20">
+          <div className="flex flex-wrap items-baseline gap-3">
+            <h2 className="text-3xl font-semibold text-fg">Selected Work</h2>
+            <span className="text-sm text-muted">— {Object.values(projectsByCategory).flat().length} projects</span>
+          </div>
+          <Link
+            href="/work"
+            className="text-sm text-muted hover:text-fg transition-colors duration-200 flex items-center gap-1.5"
+          >
+            View all with images →
+          </Link>
         </div>
 
         <div className="space-y-16">
