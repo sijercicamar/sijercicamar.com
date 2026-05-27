@@ -267,7 +267,8 @@ export const projects: Project[] = [
     tagline: "Real-time investment tips delivered through a trustworthy mobile experience",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "",
+    coverImage: "/projects/tozdemania.webp",
+    liveUrl: "https://play.google.com/store/apps/details?id=com.tozsdemania.app&hl=hu",
     tags: ["Mobile App", "Fintech", "iOS", "Android", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
