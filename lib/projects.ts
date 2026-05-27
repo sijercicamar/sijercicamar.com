@@ -162,7 +162,8 @@ export const projects: Project[] = [
     tagline: "A career guidance platform that earns traffic as it helps people",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "",
+    coverImage: "/projects/mycareer-shop.webp",
+    liveUrl: "https://mycareershop.com/",
     tags: ["SaaS", "Marketplace", "Landing Pages", "Conversion Design", "UX Research", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
