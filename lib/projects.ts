@@ -489,7 +489,8 @@ export const projects: Project[] = [
     tagline: "Premium EV charging hardware, presented like the product it is",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "",
+    coverImage: "/projects/evionor.webp",
+    liveUrl: "https://evionor.hu/",
     tags: ["E-commerce", "Shopify", "CRO", "B2C & B2B", "Figma", "Landing Pages", "Hungary"],
     role: "UX/UI Designer",
     overview:
