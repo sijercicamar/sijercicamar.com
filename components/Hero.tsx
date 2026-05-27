@@ -4,10 +4,10 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-end px-6 pt-16 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full">
-        <div className="grid md:grid-cols-[1fr_400px] lg:grid-cols-[1fr_460px] items-end gap-8">
+        <div className="grid md:grid-cols-[1fr_460px] lg:grid-cols-[1fr_560px] xl:grid-cols-[1fr_620px] items-end gap-8">
 
           {/* ── Text column ── */}
-          <div className="pb-20 lg:pb-24">
+          <div className="pb-20 lg:pb-28">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-8">
               Senior UX/UI Designer
             </p>
@@ -44,19 +44,19 @@ export default function Hero() {
           <div className="hidden md:block relative self-end">
             {/* bottom fade to blend with bg */}
             <div
-              className="absolute bottom-0 inset-x-0 h-20 pointer-events-none z-10"
+              className="absolute bottom-0 inset-x-0 h-24 pointer-events-none z-10"
               style={{ background: "linear-gradient(to top, var(--color-bg), transparent)" }}
             />
             {/* subtle neon glow at feet */}
             <div
-              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-64 h-8 blur-2xl opacity-25 z-0"
+              className="absolute bottom-0 left-1/2 -translate-x-1/2 w-80 h-10 blur-2xl opacity-30 z-0"
               style={{ background: "radial-gradient(ellipse, #57ff8c, transparent 70%)" }}
             />
             <Image
               src="/amar-nobg.png"
               alt="Amar Sijercic"
-              width={460}
-              height={460}
+              width={620}
+              height={680}
               className="relative z-[5] w-full h-auto object-contain object-bottom select-none"
               priority
               draggable={false}
