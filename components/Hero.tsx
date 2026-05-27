@@ -18,7 +18,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-muted max-w-lg mb-12 leading-relaxed">
-              I design conversion-focused digital experiences — e-commerce stores,
+              I design conversion-focused digital experiences - ecommerce stores,
               landing pages, email flows, and SaaS dashboards. Strong craft,
               research-driven, built to perform.
             </p>
