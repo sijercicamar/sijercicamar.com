@@ -440,6 +440,7 @@ export const projects: Project[] = [
     tagline: "A Bosnian digital product redesigned around real user needs",
     category: "UX/UI Design",
     year: "2023",
+    coverImage: "/projects/zicer-ba.webp",
     liveUrl: "",
     tags: ["Product Design", "UX Research", "Figma", "Mobile"],
     role: "UX/UI Designer",
