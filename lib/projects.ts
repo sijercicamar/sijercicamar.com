@@ -347,6 +347,7 @@ export const projects: Project[] = [
     tagline: "A hybrid fan app where community and commerce coexist",
     category: "UX/UI Design",
     year: "2024",
+    coverImage: "/projects/fannizero.webp",
     liveUrl: "https://apps.apple.com/us/app/fannizero/id6754892433",
     tags: ["Mobile App", "E-commerce", "Figma", "Product Design"],
     role: "UX/UI Designer",
