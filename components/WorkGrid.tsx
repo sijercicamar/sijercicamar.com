@@ -29,7 +29,7 @@ const categoryCounts = FILTERS.slice(1).reduce<Record<string, number>>(
 )
 
 function ProjectCard({ project }: { project: Project }) {
-  const screenshotUrl = project.liveUrl
+  const screenshotUrl = !project.coverImage && project.liveUrl
     ? `https://image.thum.io/get/width/640/crop/400/noanim/${project.liveUrl}`
     : null
 
@@ -38,9 +38,17 @@ function ProjectCard({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="group block bg-surface border border-edge rounded-xl overflow-hidden hover:border-muted/30 transition-all duration-200"
     >
-      {/* Screenshot / Logo / Placeholder */}
+      {/* Cover / Screenshot / Logo / Placeholder */}
       <div className="relative w-full aspect-[16/10] bg-bg overflow-hidden">
-        {screenshotUrl ? (
+        {project.coverImage ? (
+          <Image
+            src={project.coverImage}
+            alt={`${project.title} preview`}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          />
+        ) : screenshotUrl ? (
           <Image
             src={screenshotUrl}
             alt={`${project.title} preview`}

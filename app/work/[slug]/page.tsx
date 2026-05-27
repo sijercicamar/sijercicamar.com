@@ -29,12 +29,32 @@ const categoryColor: Record<string, string> = {
 function ScreenshotOrPlaceholder({
   liveUrl,
   logoUrl,
+  coverImage,
   title,
 }: {
   liveUrl: string
   logoUrl?: string
+  coverImage?: string
   title: string
 }) {
+  // 1. Local cover image (highest priority)
+  if (coverImage) {
+    return (
+      <div className="w-full rounded-xl overflow-hidden border border-edge shadow-2xl">
+        <div className="relative w-full aspect-[16/10] bg-surface">
+          <Image
+            src={coverImage}
+            alt={`${title} screenshot`}
+            fill
+            className="object-cover object-top"
+            sizes="(max-width: 768px) 100vw, 1200px"
+          />
+        </div>
+      </div>
+    )
+  }
+
+  // 2. No live URL — logo or text placeholder
   if (!liveUrl) {
     if (logoUrl) {
       return (
@@ -61,6 +81,7 @@ function ScreenshotOrPlaceholder({
     )
   }
 
+  // 3. thum.io live screenshot
   const screenshotUrl = `https://image.thum.io/get/width/1400/crop/875/noanim/${liveUrl}`
 
   return (
@@ -176,7 +197,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* ── Screenshot ── */}
       <div className="max-w-6xl mx-auto px-6 mb-24">
-        <ScreenshotOrPlaceholder liveUrl={project.liveUrl} logoUrl={project.logoUrl} title={project.title} />
+        <ScreenshotOrPlaceholder liveUrl={project.liveUrl} logoUrl={project.logoUrl} coverImage={project.coverImage} title={project.title} />
       </div>
 
       {/* ── Overview ── */}

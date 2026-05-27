@@ -6,6 +6,7 @@ export type Project = {
   year: string
   liveUrl: string
   logoUrl?: string
+  coverImage?: string
   tags: string[]
   role: string
   overview: string
@@ -21,6 +22,71 @@ export const projects: Project[] = [
   // ── UX/UI Design ──────────────────────────────────────────────────────────
 
   {
+    slug: "berva-sorozo",
+    title: "Berva Söröző",
+    tagline: "A premium spirits bar's digital identity — dark, atmospheric, and searchable",
+    category: "UX/UI Design",
+    year: "2024",
+    liveUrl: "",
+    coverImage: "/projects/berva-sorozo.webp",
+    tags: ["Web Design", "Figma", "F&B", "Product Catalog", "Hungary"],
+    role: "UX/UI Designer",
+    overview:
+      "Berva Söröző is a premium craft beer and spirits bar in Hungary — east of the Danube's most celebrated spirits destination, with over 100 varieties on offer including 6 rotating draught taps. The challenge was building a digital presence that matched the atmosphere and sophistication of the physical space, while making their extensive drinks catalog genuinely navigable.",
+    challenge:
+      "A bar's identity lives in its atmosphere, and atmosphere doesn't translate easily to screens. Berva's real competitive advantage — a curated selection of Hungarian craft spirits unmatched in the region — was invisible unless you already knew to look for it. The website needed to communicate prestige immediately, while also functioning as a practical discovery tool for guests researching their visit or planning an order.",
+    solution:
+      "I designed a dark, editorial website built around restraint and confidence — letting dramatic imagery and typography do the emotional work. The homepage establishes the brand's identity in a single full-bleed moment: the Berva name, their positioning statement, and the iconic carved figure that anchors the visual identity. The spirits catalog is the functional heart of the site, featuring a real-time search interface so guests can filter by spirit type, region, or name before they arrive. The navigation is deliberately minimal — Főoldal (Home) and Párlatok (Spirits) — because the product is the experience.",
+    outcome:
+      "A digital presence that reflects Berva's standing as one of Hungary's premier spirits destinations — premium in visual language, practical in catalog utility, and distinctive in every detail.",
+    highlights: [
+      "Dark, editorial design language built around atmosphere rather than conventional F&B clichés",
+      "Searchable spirits catalog with real-time filtering across 100+ menu items",
+      "Typography-led layout anchored by strong brand imagery",
+      "Minimal navigation structure that keeps focus on the product catalog",
+    ],
+  },
+
+  {
+    slug: "matekvar",
+    title: "MatekVÁR",
+    tagline: "Making math feel like play for Hungarian children — web and mobile",
+    category: "UX/UI Design",
+    year: "2024",
+    liveUrl: "",
+    coverImage: "/projects/matekvar.webp",
+    tags: ["EdTech", "Mobile App", "SaaS", "Product Design", "Gamification", "Figma", "Hungary"],
+    role: "Lead UX/UI Designer",
+    overview:
+      "MatekVÁR is a Hungarian educational platform that helps children master mathematics through scientifically-grounded, game-inspired practice — faster sessions, more engagement, better retention. The platform runs on both web and mobile, serving parents, students, and teachers with a single unified product experience. By launch it had already accumulated 528 active users, 52,620+ solved tasks, and strong daily engagement across practice and exam modes.",
+    challenge:
+      "Educational apps for children face a specific UX dilemma: the product has to satisfy two audiences with completely different expectations at the same time. Children need the interface to feel fun, rewarding, and immediately understandable — any friction kills the habit. Parents evaluating the product need to see credibility, safety, and educational rigor — any frivolity erodes trust. Designing an experience that genuinely serves both without compromising either required careful thinking about hierarchy, visual language, and how information was presented on every screen.",
+    solution:
+      "I designed the full product across web and mobile, centering the visual language around a bright, energetic palette — blues, oranges, and teals — with clear typographic hierarchy and generous spacing that works for younger users. The core learning flows (practice, multiplication table, exams) are each structured as self-contained sessions with clear start and end states, immediate feedback on answers, and progress indicators that make every session feel like a small win. The homepage communicates both the playful experience (for children) and the proven engagement stats (for parents) in a single layout. Mobile screens were designed for one-thumb use with large touch targets and minimal cognitive load per step.",
+    outcome:
+      "A polished, dual-audience edtech product that earns trust from parents and daily engagement from children — with measurable impact visible in the platform's own usage metrics from launch.",
+    highlights: [
+      "Dual-audience design: engaging for children, credible for parents",
+      "Web + mobile product designed in a single consistent Figma system",
+      "Gamified practice flows with immediate feedback and session progress",
+      "Multiplication table module with structured difficulty levels",
+      "Social proof built into the homepage: active users, solved tasks, daily sessions",
+    ],
+    process: [
+      { step: "Audience Mapping", detail: "Mapped two separate user journeys — the child using the product, and the parent evaluating and purchasing it. Designed each screen to serve both simultaneously without conflict." },
+      { step: "Core Flow Design", detail: "Designed the practice, exam, and multiplication table flows as distinct session types, each with clear entry, mid-session feedback, and completion states." },
+      { step: "Mobile Adaptation", detail: "Translated all web flows to mobile with enlarged touch targets, simplified layouts, and one-action-per-screen discipline suited to younger users." },
+      { step: "Dashboard & Stats", detail: "Designed the parent-facing statistics view to surface meaningful engagement data — daily active sessions, task completion, and progress over time." },
+    ],
+    metrics: [
+      { label: "Active users", value: "528" },
+      { label: "Tasks solved", value: "52,620+" },
+      { label: "Practice sessions/day", value: "1,230+" },
+      { label: "Exam sessions/day", value: "1,160+" },
+    ],
+  },
+
+  {
     slug: "standup-republic",
     title: "Standup Republic",
     tagline: "End-to-end platform for Germany's stand-up comedy scene",
@@ -28,6 +94,7 @@ export const projects: Project[] = [
     year: "2024",
     liveUrl: "https://app.standup-republic.com",
     logoUrl: "https://logo.clearbit.com/standup-republic.com",
+    coverImage: "/projects/standup-republic.webp",
     tags: ["Product Design", "Mobile App", "SaaS", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
@@ -54,6 +121,7 @@ export const projects: Project[] = [
     year: "2024",
     liveUrl: "https://persuva.ai",
     logoUrl: "https://logo.clearbit.com/persuva.ai",
+    coverImage: "/projects/persuava.webp",
     tags: ["SaaS", "AI", "E-commerce", "CRO", "Email Design", "Landing Pages", "Figma", "Webflow"],
     role: "Lead UX/UI Designer",
     overview:
@@ -159,6 +227,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/ajandekbar.webp",
     tags: ["E-commerce", "SaaS", "Conversion Design", "Figma", "Portal Design", "Hungary"],
     role: "Lead UX/UI Designer",
     overview:
@@ -223,6 +292,7 @@ export const projects: Project[] = [
     year: "2024",
     liveUrl: "https://openforests.com",
     logoUrl: "https://logo.clearbit.com/openforests.com",
+    coverImage: "/projects/open-forest.webp",
     tags: ["Webflow", "Figma", "Startup", "Web Design", "Ireland"],
     role: "UX/UI Designer",
     overview:
@@ -249,6 +319,7 @@ export const projects: Project[] = [
     year: "2024",
     liveUrl: "https://leadspicker.com",
     logoUrl: "https://logo.clearbit.com/leadspicker.com",
+    coverImage: "/projects/leadspicker.webp",
     tags: ["Webflow", "Figma", "SaaS Marketing", "Animation", "Illustration"],
     role: "UX/UI Designer",
     overview:
@@ -299,6 +370,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/lucky-punch.webp",
     tags: ["Web Design", "Figma", "Branding", "UX Design"],
     role: "UX/UI Designer",
     overview:
@@ -324,6 +396,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/eldelia.webp",
     tags: ["E-commerce", "CRO", "Conversion Optimization", "Figma", "A/B Testing", "Checkout Design"],
     role: "UX/UI Designer",
     overview:
@@ -457,6 +530,7 @@ export const projects: Project[] = [
     category: "Webflow",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/mano-klima.webp",
     tags: ["Webflow", "Figma", "Local Business", "Lead Generation", "HVAC"],
     role: "UX/UI Designer & Webflow Developer",
     overview:
@@ -482,6 +556,7 @@ export const projects: Project[] = [
     category: "Webflow",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/ardes-music.webp",
     tags: ["Webflow", "Figma", "Music", "Brand", "E-commerce"],
     role: "UX/UI Designer & Webflow Developer",
     overview:
@@ -507,6 +582,7 @@ export const projects: Project[] = [
     category: "Webflow",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/herbstritt-haustechnik.webp",
     tags: ["Webflow", "Figma", "Germany", "B2B", "Building Services"],
     role: "UX/UI Designer & Webflow Developer",
     overview:
@@ -532,6 +608,7 @@ export const projects: Project[] = [
     category: "Webflow",
     year: "2024",
     liveUrl: "",
+    coverImage: "/projects/verdatherm.webp",
     tags: ["Webflow", "Figma", "Green Energy", "Sustainability", "B2B"],
     role: "UX/UI Designer & Webflow Developer",
     overview:
