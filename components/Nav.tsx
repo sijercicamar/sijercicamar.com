@@ -27,14 +27,14 @@ export default function Nav() {
         scrolled ? "border-b border-edge backdrop-blur-md bg-bg/80" : ""
       }`}
     >
-      <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <nav className="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between">
         <Link
           href="/"
-          className="text-sm font-medium text-fg hover:text-accent transition-colors duration-200"
+          className="text-base font-semibold text-fg hover:text-accent transition-colors duration-200 tracking-tight"
         >
           Amar Sijercic
         </Link>
-        <ul className="flex items-center gap-8">
+        <ul className="flex items-center gap-10">
           {links.map(({ label, href }) => {
             const isActive =
               label === "Work" && pathname.startsWith("/work");
@@ -42,7 +42,7 @@ export default function Nav() {
               <li key={label}>
                 <Link
                   href={href}
-                  className={`text-sm transition-colors duration-200 ${
+                  className={`text-base transition-colors duration-200 ${
                     isActive
                       ? "text-fg"
                       : "text-muted hover:text-fg"
