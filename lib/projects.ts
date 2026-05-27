@@ -692,32 +692,6 @@ export const projects: Project[] = [
   },
 
   {
-    slug: "kidsinfo-ba",
-    title: "Kids Info",
-    tagline: "A parenting magazine at scale — designed for discovery across 1,100+ pages",
-    category: "WordPress & Web Design",
-    year: "2022",
-    liveUrl: "https://kidsinfo.ba",
-    logoUrl: "https://logo.clearbit.com/kidsinfo.ba",
-    tags: ["WordPress", "Publishing", "CMS", "Content Architecture"],
-    role: "Web Designer & Developer",
-    overview:
-      "Kids Info is Bosnia's leading digital parenting magazine — covering everything from pregnancy to teenagers, with over 1,100 pages of archived content. As the platform grew, content discoverability had become the central UX problem: a parent looking for advice on a specific topic had to work too hard to find it.",
-    challenge:
-      "Designing a content site at scale is fundamentally a taxonomy problem. With thousands of articles across seven life-stage categories, the existing structure wasn't giving readers natural pathways through the archive — and the editorial team was spending time maintaining inconsistencies rather than producing content.",
-    solution:
-      "I redesigned the category and navigation architecture around the natural arc of parenthood: Pregnancy → Baby → Preschool → Elementary → Teenager. Each stage gets its own visual identity within the shared design system, so readers can orient themselves instantly. Article templates were standardized to make editorial production faster and more consistent. A downloadable magazine section and recipe hub were added as high-engagement features, with featured article placements to surface evergreen content alongside the daily feed.",
-    outcome:
-      "A more coherent, navigable content experience that serves both first-time visitors looking for specific advice and returning readers who want to browse — with editorial templates that make running the site significantly easier.",
-    highlights: [
-      "Life-stage content architecture following the natural parenting journey",
-      "Standardized article templates for scalable editorial production",
-      "Downloadable magazine section and recipe hub as high-engagement features",
-      "SEO-optimized structure to surface the deep content archive in search",
-    ],
-  },
-
-  {
     slug: "orela-ba",
     title: "Orela",
     tagline: "Hotel cosmetics, presented with the hospitality the industry demands",
