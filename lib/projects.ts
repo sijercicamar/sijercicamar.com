@@ -641,6 +641,7 @@ export const projects: Project[] = [
     tagline: "An independent news portal built to handle serious journalism at scale",
     category: "WordPress & Web Design",
     year: "2022",
+    coverImage: "/projects/interview-ba.webp",
     liveUrl: "https://interview.ba",
     logoUrl: "https://logo.clearbit.com/interview.ba",
     tags: ["WordPress", "News", "Custom Development", "Interactive Features"],
