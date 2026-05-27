@@ -723,6 +723,7 @@ export const projects: Project[] = [
     tagline: "Hotel cosmetics, presented with the hospitality the industry demands",
     category: "WordPress & Web Design",
     year: "2023",
+    coverImage: "/projects/orela-ba.webp",
     liveUrl: "https://orela.ba",
     logoUrl: "https://logo.clearbit.com/orela.ba",
     tags: ["WordPress", "WooCommerce", "B2B", "E-commerce", "Hospitality"],
