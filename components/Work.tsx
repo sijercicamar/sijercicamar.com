@@ -20,14 +20,18 @@ const categoryDot: Record<string, string> = {
 }
 
 // ── Featured card (large) ──────────────────────────────────────────────────
-function FeaturedCard({ project, tall }: { project: Project; tall?: boolean }) {
+function FeaturedCard({ project, imageAspect = "aspect-[16/10]", className = "" }: {
+  project: Project
+  imageAspect?: string
+  className?: string
+}) {
   return (
     <Link
       href={`/work/${project.slug}`}
-      className="group flex flex-col bg-surface border border-edge rounded-2xl overflow-hidden hover:border-muted/30 transition-all duration-300"
+      className={`group flex flex-col bg-surface border border-edge rounded-2xl overflow-hidden hover:border-muted/30 transition-all duration-300 ${className}`}
     >
-      {/* image */}
-      <div className={`relative w-full ${tall ? "aspect-[3/4] md:aspect-auto md:flex-1" : "aspect-[16/10]"} bg-bg overflow-hidden`}>
+      {/* image — always has an explicit aspect ratio so next/image fill gets a computed height */}
+      <div className={`relative w-full ${imageAspect} bg-bg overflow-hidden`}>
         {project.coverImage ? (
           <Image
             src={project.coverImage}
@@ -153,17 +157,16 @@ export default function Work() {
         </div>
 
         {/* ── featured: asymmetric 2-col ── */}
-        <div className="grid md:grid-cols-[1fr_1fr] lg:grid-cols-[1.4fr_1fr] gap-4 mb-4">
-          {/* left: main featured card (taller) */}
+        {/* Left card uses portrait aspect to appear tall/prominent; right wraps two landscape cards */}
+        <div className="grid md:grid-cols-[1.35fr_1fr] gap-4 mb-4">
           {main && (
-            <div className="md:row-span-2">
-              <FeaturedCard project={main} tall />
-            </div>
+            <FeaturedCard project={main} imageAspect="aspect-[4/5]" />
           )}
-          {/* right: two stacked cards */}
-          {side.map((p) => (
-            <FeaturedCard key={p.slug} project={p} />
-          ))}
+          <div className="flex flex-col gap-4">
+            {side.map((p) => (
+              <FeaturedCard key={p.slug} project={p} imageAspect="aspect-[3/2]" className="flex-1" />
+            ))}
+          </div>
         </div>
 
         {/* ── divider + "More work" ── */}
