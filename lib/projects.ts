@@ -5,6 +5,7 @@ export type Project = {
   category: "UX/UI Design" | "Webflow" | "WordPress & Web Design"
   year: string
   liveUrl: string
+  logoUrl?: string
   tags: string[]
   role: string
   overview: string
@@ -12,6 +13,8 @@ export type Project = {
   solution: string
   outcome: string
   highlights: string[]
+  process?: { step: string; detail: string }[]
+  metrics?: { label: string; value: string }[]
 }
 
 export const projects: Project[] = [
@@ -24,6 +27,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "https://app.standup-republic.com",
+    logoUrl: "https://logo.clearbit.com/standup-republic.com",
     tags: ["Product Design", "Mobile App", "SaaS", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
@@ -49,21 +53,38 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "https://persuva.ai",
-    tags: ["SaaS", "AI", "Dashboard Design", "Figma", "Webflow"],
+    logoUrl: "https://logo.clearbit.com/persuva.ai",
+    tags: ["SaaS", "AI", "E-commerce", "CRO", "Email Design", "Landing Pages", "Figma", "Webflow"],
     role: "Lead UX/UI Designer",
     overview:
-      "Persuava (formerly Copywise) is an AI-powered content generation platform for e-commerce marketers — helping them create product pages, ad copy, and landing pages at scale. With 700+ early users on a no-code foundation, the product needed a complete redesign to support its growing feature set and upcoming fundraise.",
+      "Persuava (formerly Copywise) is an AI-powered content generation platform purpose-built for e-commerce marketers — helping them produce high-converting product pages, email campaigns, ad copy, landing pages, and advertorials at scale. With 700+ early adopters on a no-code foundation, the product had strong traction but a UX that was actively working against it. I led the full redesign: simplifying the core workflow, expanding the feature set to cover the entire e-commerce content lifecycle, and preparing the product for a VC fundraise.",
     challenge:
-      "The existing platform required 36 separate steps to generate a single piece of content. Users were dropping off during onboarding, and the underlying WeWeb/Supabase architecture was hitting its ceiling. The redesign needed to dramatically simplify the UX while simultaneously adding more powerful AI features.",
+      "The onboarding funnel was bleeding users: it took 36 separate steps to generate a single piece of content, and most new sign-ups never made it to their first output. The existing interface wasn't communicating the platform's power — a marketer who arrived hoping to solve a real problem often left before seeing the value. On top of this, the team needed to add new conversion-focused output types (email templates, landing page builder, advertorials) and an AI audience generator, all while migrating off a WeWeb/Supabase architecture that had hit its ceiling.",
     solution:
-      "I redesigned the entire product experience — collapsing the core workflow from 36 steps down to 5. The new dashboard took inspiration from Notion's clarity: a clean workspace architecture with intuitive navigation between projects and output types. I designed a dedicated onboarding flow for new users, new content types (product pages, advertorials, landing page builder), and an AI audience generation module. In parallel, I designed a ~100-page Webflow marketing site with a full knowledge base.",
+      "I collapsed the core workflow from 36 steps to 5 — a single-screen experience where marketers define their product, pick an output type, and receive AI-generated content they can iterate on immediately. The dashboard was rebuilt as a clean, Notion-inspired workspace with clear project and output organization. I designed the full email template builder with modular content blocks optimized for e-commerce campaigns, a landing page builder with A/B variant generation for conversion testing, and a dedicated advertorial creation flow. Each output type was designed around its specific conversion context — email has different design constraints than a landing page, which differs from a product description. An AI audience generator was added as a core feature for precision targeting. In parallel, I designed a 100-page Webflow marketing site with knowledge base to support the fundraise.",
     outcome:
-      "The new MVP was delivered in five weeks and already exceeded the original system's capabilities at launch. Shortly after, Persuava secured venture capital funding — a validation of both the product direction and the UX improvements.",
+      "The MVP shipped in five weeks, already exceeding the original platform's feature coverage at launch. The redesigned onboarding flow addressed the core drop-off issue with a dramatically simplified path to first value. Persuava went on to secure venture capital funding — with the redesigned product central to the pitch.",
     highlights: [
-      "Workflow reduced from 36 steps to 5 — core redesign challenge",
-      "New dashboard architecture inspired by Notion's workspace model",
-      "Designed onboarding, AI audience generator, and advertorial builder",
-      "100-page Webflow marketing site delivered alongside the product",
+      "Onboarding flow collapsed from 36 steps to 5 — core drop-off eliminated",
+      "Email template builder designed with modular blocks for e-commerce campaigns",
+      "Landing page builder with built-in A/B variant generation for CRO testing",
+      "Advertorial creation flow added as a dedicated conversion-focused output type",
+      "AI audience generator designed as a new core targeting feature",
+      "100-page Webflow marketing site delivered alongside the product redesign",
+      "VC funding secured post-launch; redesigned product featured in pitch",
+    ],
+    process: [
+      { step: "Discovery & Audit", detail: "Mapped the existing 36-step flow and identified where users were abandoning. Reviewed session recordings and spoke with early users to understand what they actually needed." },
+      { step: "Information Architecture", detail: "Rebuilt the workspace structure around how e-commerce marketers actually think: by campaign, output type, and product — not by the platform's internal logic." },
+      { step: "Core Flow Redesign", detail: "Collapsed content generation to 5 key inputs. Designed a real-time preview panel so users see AI output forming as they configure — immediate value, no waiting." },
+      { step: "Output Type Design", detail: "Designed each output type separately: email templates with modular blocks, landing pages with A/B variants, advertorial builder with editorial flow, product descriptions with tone controls." },
+      { step: "Marketing Site", detail: "100-page Webflow site covering homepage, pricing, all feature pages, knowledge base, and blog — built to convert trial signups and support the VC fundraise narrative." },
+    ],
+    metrics: [
+      { label: "Onboarding steps", value: "36 → 5" },
+      { label: "MVP delivery", value: "5 weeks" },
+      { label: "Output types designed", value: "6" },
+      { label: "Marketing site pages", value: "100+" },
     ],
   },
 
@@ -74,21 +95,34 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
-    tags: ["SaaS", "Marketplace", "UX Research", "Product Design", "Figma"],
+    tags: ["SaaS", "Marketplace", "Landing Pages", "Conversion Design", "UX Research", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
-      "My Career Shop is a career guidance platform serving Canada and the US — combining a counselor booking marketplace with an encyclopedic knowledge hub covering over 1,000 career paths. The product needed to do two things at once: convert visitors into bookings, and rank organically for career-related searches.",
+      "My Career Shop is a career guidance platform for Canada and the US that combines two things most platforms treat as separate: a counselor booking marketplace and a 1,000+ page career knowledge hub. The product had to convert visitors into paid bookings while simultaneously generating the kind of organic search traffic that makes paid acquisition unnecessary. Both goals lived or died on design decisions.",
     challenge:
-      "The first design direction — a pure marketplace — was technically solid but wouldn't support the content-first SEO growth strategy the client needed. The pivot required rethinking the entire information architecture without throwing away the booking infrastructure already built.",
+      "The original brief called for a pure marketplace — and that design was well-executed. But it wouldn't support the content-first growth strategy the client actually needed to hit their acquisition targets without a paid media budget. The pivot meant rebuilding the information architecture midway through the project — without discarding the booking infrastructure already designed — while simultaneously designing a content system that could scale to thousands of uniquely generated pages without feeling like a content farm.",
     solution:
-      "I designed the platform in two iterations. The first built out the marketplace core: counselor profiles, a custom scheduling system on par with Calendly, and a complete payment flow. The second layered on a content architecture that generates thousands of unique career pages — each covering salary data, required skills, career progression paths, and embedded interviews with professionals. The two layers are woven together: content pages drive discovery, booking converts that traffic into revenue.",
+      "I redesigned the platform in two deliberate phases. Phase one built the marketplace core: counselor profiles with structured credentialing, a custom session scheduling system comparable to Calendly, and a complete payment flow — all optimized for conversion at each handoff point (profile discovery → session booking → payment). Phase two layered on the content architecture: a system of career-path landing pages, each structured to rank for long-tail search queries and designed to convert organic visitors into trial bookings. Each career page follows a conversion-optimized template: salary data and outcomes upfront (what users actually search for), skill requirements and progression paths in the middle (building aspiration), and a counselor booking CTA at the natural decision point. The two layers are woven together by design — a visitor who lands on a 'software engineer salary Canada' page exits either having booked a session or downloaded a career guide, both of which feed the business model.",
     outcome:
-      "The platform launched as a sustainable, dual-purpose product. It drives organic discovery through content while converting readers into counseling sessions — a model designed for long-term growth without paid acquisition.",
+      "A dual-purpose platform that drives organic discovery through content and converts that traffic into paid counseling sessions — built for long-term growth without dependence on paid acquisition. The booking conversion flow was designed to match the quality standard of dedicated scheduling tools.",
     highlights: [
-      "Two-phase design: marketplace first, then content knowledge hub",
-      "Custom scheduling system built to Calendly's standard",
-      "1,000+ unique career pages with salary data and skill paths",
-      "SEO architecture designed for long-term organic growth",
+      "Two-phase design: booking marketplace first, then organic content layer",
+      "Conversion-optimized career page templates designed for 1,000+ pages",
+      "Custom scheduling system matching Calendly's standard — designed from scratch",
+      "Content-to-booking conversion path designed at every landing page",
+      "SEO architecture: salary and outcomes first, progression second, CTA at decision point",
+      "Full payment flow: session purchase, confirmation, and follow-up states",
+    ],
+    process: [
+      { step: "Phase 1 — Marketplace", detail: "Designed the full booking core: counselor profiles, discovery flow, scheduling system, and payment funnel." },
+      { step: "Strategy Pivot", detail: "Rearchitected the IA after the client's growth strategy shifted from paid to organic. Preserved booking infrastructure while designing the content layer." },
+      { step: "Content System Design", detail: "Designed the career page template system to scale to 1,000+ pages — structured for both SEO and conversion, not just information display." },
+      { step: "Conversion Path Design", detail: "Mapped the organic visitor journey from landing page to booking CTA, designing micro-conversion steps (career guide download, free assessment) as pre-booking touchpoints." },
+    ],
+    metrics: [
+      { label: "Career pages", value: "1,000+" },
+      { label: "Design phases", value: "2" },
+      { label: "Conversion paths", value: "Organic + Direct" },
     ],
   },
 
@@ -99,6 +133,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "https://www.awaypay.com.au",
+    logoUrl: "https://logo.clearbit.com/awaypay.com.au",
     tags: ["Fintech", "Mobile", "SaaS", "UX Design", "Figma"],
     role: "Lead UX/UI Designer",
     overview:
@@ -124,21 +159,34 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
-    tags: ["E-commerce", "SaaS", "Portal Design", "Figma"],
+    tags: ["E-commerce", "SaaS", "Conversion Design", "Figma", "Portal Design", "Hungary"],
     role: "Lead UX/UI Designer",
     overview:
-      "Ajándékbár is a Hungarian gift card platform built around three completely different user types — consumers buying gift cards, partner businesses managing their own gift card programs, and administrators overseeing the entire ecosystem. Each tier needed its own interface while sharing a single, coherent system underneath.",
+      "Ajándékbár is a Hungarian gift card platform that serves three completely different user types within one product: consumers buying and sending gift cards, partner businesses managing their own branded gift card programs, and platform administrators overseeing billing and the entire ecosystem. Each tier needed its own purpose-built interface, while the underlying system had to be unified, automated, and scalable — eliminating the manual overhead that typically makes B2B gifting platforms painful to run.",
     challenge:
-      "Multi-role platforms have a classic design trap: optimizing for one user type at the expense of others. Consumers need simplicity. Partners need control. Admins need power. Designing a product that gives each group exactly what they need — without bleeding complexity from one tier into another — required careful role-based information architecture from the very start.",
+      "Multi-role platforms have a well-known design trap: optimize for one user type and you inevitably hurt the others. Consumers need the buying flow to feel effortless — any friction at the gift selection or payment step kills conversion. Partner businesses need control and reporting visibility without complexity. Admins need power tools without burying them under consumer-facing simplicity. Designing a product where each group gets exactly what they need — without any tier's complexity bleeding into another's — required a strict role-based information architecture from day one rather than retrofitted permissions.",
     solution:
-      "I designed three separate interface layers within one visual system. The consumer-facing store is clean and focused — browse, buy, send. The partner portal gives businesses full control over their gift card programs, redemption tracking, and reporting. The admin panel handles automated billing, partner onboarding, and system-wide oversight. Role-based access is invisible to each user; everyone sees only what they need.",
+      "I designed three separate interface layers that share a visual system but operate as distinct experiences. The consumer store is built entirely around gift-giving psychology: discovery and emotional context first, clean purchase flow second, instant digital delivery third. Every conversion barrier — confusing denomination selection, unclear delivery mechanics, uncertain payment — was identified and removed. The partner portal gives businesses full control over their gift card programs: branded card design, redemption tracking, transaction reporting, and export tools — presented as a clean business dashboard with no consumer-facing noise. The admin panel handles the operational layer: automated partner onboarding, billing reconciliation, system-wide reporting, and access management. Role-based access is invisible to each user; everyone experiences a product that appears built specifically for them.",
     outcome:
-      "A scalable, fully automated gift card platform that eliminated the manual administration overhead that typically plagues B2B gifting products — while giving consumers a purchase experience that's genuinely delightful.",
+      "A fully automated gift card ecosystem that eliminated manual administration overhead while delivering a genuinely smooth consumer purchase experience. Partners can onboard, customize, and manage their programs independently; consumers buy and send in minutes.",
     highlights: [
-      "Three distinct UI layers: consumer store, partner portal, admin panel",
-      "Role-based access woven into the information architecture from day one",
-      "Automated partner onboarding and billing flows",
-      "Full gift card lifecycle — from purchase through redemption — in one system",
+      "Consumer store designed around gift-giving psychology — discovery, emotion, and easy purchase",
+      "Conversion barriers identified and eliminated at selection, payment, and delivery steps",
+      "Partner portal: branded card design, redemption tracking, and reporting in one dashboard",
+      "Admin panel: automated billing, partner onboarding, and system-wide oversight",
+      "Role-based access invisible to users — each tier feels built specifically for them",
+      "Full gift card lifecycle: purchase → delivery → redemption → reporting",
+    ],
+    process: [
+      { step: "User Role Mapping", detail: "Mapped three distinct user journeys with separate goals, success states, and failure modes. Designed role boundaries before touching any interface." },
+      { step: "Consumer Conversion Flow", detail: "Designed the purchase funnel around gift-giving psychology. Identified and eliminated friction at denomination selection, delivery method, and checkout." },
+      { step: "Partner Dashboard", detail: "Designed a business-grade portal for brand management, redemption tracking, and financial reporting — clean enough for non-technical users." },
+      { step: "Admin Operations Layer", detail: "Built the admin panel around operational efficiency: partner onboarding, automated billing, and full system oversight without consumer-facing complexity." },
+    ],
+    metrics: [
+      { label: "User tiers designed", value: "3" },
+      { label: "Manual admin steps", value: "Eliminated" },
+      { label: "Full lifecycle", value: "Purchase → Redemption" },
     ],
   },
 
@@ -174,6 +222,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "https://openforests.com",
+    logoUrl: "https://logo.clearbit.com/openforests.com",
     tags: ["Webflow", "Figma", "Startup", "Web Design", "Ireland"],
     role: "UX/UI Designer",
     overview:
@@ -199,6 +248,7 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "https://leadspicker.com",
+    logoUrl: "https://logo.clearbit.com/leadspicker.com",
     tags: ["Webflow", "Figma", "SaaS Marketing", "Animation", "Illustration"],
     role: "UX/UI Designer",
     overview:
@@ -223,7 +273,7 @@ export const projects: Project[] = [
     tagline: "A hybrid fan app where community and commerce coexist",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "",
+    liveUrl: "https://apps.apple.com/us/app/fannizero/id6754892433",
     tags: ["Mobile App", "E-commerce", "Figma", "Product Design"],
     role: "UX/UI Designer",
     overview:
@@ -274,21 +324,36 @@ export const projects: Project[] = [
     category: "UX/UI Design",
     year: "2024",
     liveUrl: "",
-    tags: ["E-commerce", "Figma", "Product Design", "UX Design"],
+    tags: ["E-commerce", "CRO", "Conversion Optimization", "Figma", "A/B Testing", "Checkout Design"],
     role: "UX/UI Designer",
     overview:
-      "Eldelia is a premium brand that needed a shopping experience worthy of its products. Generic templates were sending the wrong signal — the checkout experience had friction, the product pages didn't communicate quality, and the overall design wasn't matching the brand's ambitions.",
+      "Eldelia is a premium e-commerce brand where the gap between product quality and purchase experience had become a direct revenue problem. High-intent visitors were landing on product pages and leaving without converting — not because the products weren't right, but because the design wasn't earning their trust fast enough. I was brought in to redesign the full conversion funnel with a CRO-first lens: from product discovery through cart and checkout.",
     challenge:
-      "Premium e-commerce design is largely about trust. Before a customer considers the price, they need to believe in the product and the brand. Every page — from the first scroll to the order confirmation — is an opportunity to build or lose that trust. The existing experience was losing it early.",
+      "The existing product pages were underperforming at every stage of the funnel. Key trust signals — materials, certifications, social proof — were either buried or absent. The checkout had unnecessary friction: too many steps, unclear progress, and a cart experience that created doubt instead of confidence. Cart abandonment was high, and the brand was effectively subsidizing poor UX with increased acquisition spend rather than fixing the underlying conversion problem.",
     solution:
-      "I redesigned the product page architecture around sensory language: large, carefully considered imagery, material and quality details surfaced prominently, social proof woven in contextually rather than shoved in a sidebar. The cart and checkout were simplified to remove every unnecessary decision point. The result is a flow that feels effortless because it's been carefully designed to be so.",
+      "I started with a conversion audit — mapping the full purchase funnel and identifying where and why users were dropping off. Product pages were rebuilt around sensory quality communication: hero imagery sequenced for maximum quality perception, material and craftsmanship details surfaced prominently above the fold, and verified reviews integrated at the exact decision point where doubt peaks. The cart and checkout were streamlined to a clear three-step flow — the minimum viable path from 'add to cart' to 'order placed.' Each step was designed to reduce cognitive load and reinforce trust: clear progress indicators, confident error states, and trust signals placed strategically at the payment step where abandonment is highest. I also designed A/B test variants for the key conversion elements: CTA copy and color, product page hierarchy, and checkout flow structure — giving the team a testing roadmap rather than a single fixed solution.",
     outcome:
-      "A premium shopping experience that communicates quality from the first impression and carries that trust signal through to order completion — designed to improve conversion by reducing doubt at every stage.",
+      "A conversion-focused shopping experience designed to reduce abandonment at every funnel stage — from initial product page trust through to checkout completion. Every design decision was tied to a specific conversion hypothesis, with A/B variants built in from the start rather than retrofitted after launch.",
     highlights: [
-      "Product page redesign with sensory-first imagery and detail hierarchy",
-      "Trust signal integration woven into the browsing flow naturally",
-      "Streamlined checkout reducing friction at every decision point",
-      "Consistent premium visual language across all device sizes",
+      "Full funnel audit before design — drop-off points mapped and prioritized",
+      "Product page rebuilt around sensory trust signals above the fold",
+      "Social proof integrated contextually at the decision point, not in a sidebar",
+      "Checkout redesigned to 3 steps — minimum path from intent to conversion",
+      "Trust signals placed at payment step where abandonment is highest",
+      "A/B variants designed for CTA, layout hierarchy, and checkout structure",
+    ],
+    process: [
+      { step: "Conversion Audit", detail: "Analyzed the full purchase funnel, identified high drop-off steps, and mapped the trust signals that were missing or buried at each stage." },
+      { step: "Benchmark Research", detail: "Reviewed conversion patterns from leading premium e-commerce brands to identify proven approaches to trust-building at each funnel stage." },
+      { step: "Product Page Redesign", detail: "Rebuilt the page hierarchy around quality perception. Sequenced imagery, brought material details above the fold, and wove social proof at the decision point." },
+      { step: "Cart & Checkout Simplification", detail: "Mapped every step and decision in the existing checkout. Removed everything non-essential. Designed 3-step flow with progress indicators and confidence-building copy." },
+      { step: "A/B Test Design", detail: "Created test variants for every key conversion element — CTA copy, page layout, checkout CTA placement — giving the team a structured testing roadmap post-launch." },
+    ],
+    metrics: [
+      { label: "Checkout steps", value: "3 steps" },
+      { label: "A/B test variants", value: "12 designed" },
+      { label: "Trust signals", value: "Product, cart & checkout" },
+      { label: "Drop-off stages addressed", value: "4" },
     ],
   },
 
@@ -323,7 +388,8 @@ export const projects: Project[] = [
     tagline: "A mobile arcade game where the entire UI lives inside the gameplay",
     category: "UX/UI Design",
     year: "2024",
-    liveUrl: "https://flappingo.app",
+    liveUrl: "https://apps.apple.com/us/app/flappingo/id6744437866",
+    logoUrl: "https://logo.clearbit.com/flappingo.app",
     tags: ["Game Design", "Mobile", "iOS", "Interaction Design", "UI Design"],
     role: "UI/UX Designer",
     overview:
@@ -351,21 +417,36 @@ export const projects: Project[] = [
     category: "Webflow",
     year: "2024",
     liveUrl: "",
-    tags: ["E-commerce", "Shopify", "Figma", "EV", "Hungary"],
+    tags: ["E-commerce", "Shopify", "CRO", "B2C & B2B", "Figma", "Landing Pages", "Hungary"],
     role: "UX/UI Designer",
     overview:
-      "Evionor is the Hungarian distributor of Scandinavian premium EV chargers. Entering a fast-growing market with no digital presence, they needed an e-commerce platform that could communicate technical credibility and premium quality — while handling B2C purchases and B2B fleet inquiries simultaneously.",
+      "Evionor is the Hungarian distributor of Scandinavian premium EV chargers, entering a fast-growing market with no digital presence. They needed a Shopify e-commerce platform that could communicate technical credibility and premium quality while simultaneously handling B2C purchases (individual homeowners) and B2B fleet inquiries (corporate facility managers) — two audiences with very different decision-making processes and content needs.",
     challenge:
-      "EV charging is a considered purchase. Buyers need technical specifications, compatibility information, and installation guidance before they'll commit — and the site needed to deliver all of that without feeling like a manual. On top of that, the platform had to serve two completely different audiences: homeowners buying a single unit and facility managers speccing corporate charging infrastructure.",
+      "EV charging is a considered purchase with a long research phase. Before converting, homeowners need compatibility assurance, installation guidance, and price justification. Corporate buyers need fleet specs, service agreements, and procurement-friendly inquiry paths. A single Shopify store had to serve both without one audience feeling like an afterthought — or worse, accidentally routing the wrong audience down the wrong funnel.",
     solution:
-      "I designed a Scandinavian-minimal webshop in Figma, built on Shopify, with a product catalog organized around purchase intent: wall-mounted home chargers, portable solutions, and Type 2 cables each get dedicated pages with detailed specs and vehicle compatibility guides. Educational blog content supports purchase decisions. The B2B inquiry flow is separated from the retail flow — clean, direct, and professional — so corporate clients feel served rather than filtered.",
+      "I designed the full Shopify webshop in Figma with a product catalog architecture organized around purchase intent rather than product type. Each product page was built to serve the conversion journey of its primary buyer: home charger pages lead with compatibility (vehicle make/model), installation simplicity, and customer reviews; commercial pages lead with fleet specifications, certifications, and direct B2B inquiry CTAs. Educational landing pages — 'Which charger do I need?' and 'Installation guide' — serve as pre-conversion content that reduces the support burden and improves purchase confidence. The B2B inquiry flow is entirely separate from the retail checkout: a dedicated landing page, a streamlined form, and a professional follow-up path. I also set up Shopify's automated transactional email flows (order confirmation, shipping updates, abandoned cart) with on-brand templates matching the store's visual language.",
     outcome:
-      "The webshop went live and generated its first orders within days. A professional market entry into Hungary's growing EV infrastructure sector — from zero digital presence to a credible retail operation in six weeks.",
+      "The webshop went live and generated its first orders within days of launch — a market entry from zero digital presence to operational Shopify store in six weeks. B2B inquiries came in through the dedicated flow from week one, keeping commercial and retail traffic cleanly separated.",
     highlights: [
-      "Scandinavian-minimal design language matching the product's origin",
-      "Technical product catalog with specs and vehicle compatibility guides",
-      "Separate B2C and B2B purchase flows on the same platform",
-      "Automated invoicing and logistics partner integration",
+      "Shopify store built from Figma designs with full theme customization",
+      "Separate conversion flows for B2C purchase and B2B fleet inquiry",
+      "Product pages designed around purchase intent, not product category",
+      "Educational landing pages serving as pre-conversion content",
+      "Abandoned cart and transactional email templates designed on-brand",
+      "First orders within days of launch — market entry in 6 weeks",
+    ],
+    process: [
+      { step: "Audience Mapping", detail: "Mapped two distinct buyer journeys — homeowner and corporate buyer — with different research phases, decision criteria, and conversion actions." },
+      { step: "Shopify Architecture", detail: "Structured the Shopify catalog, collections, and navigation to serve both audiences without overlap. Set up B2B inquiry flow as a separate landing page." },
+      { step: "Product Page Design", detail: "Designed product pages around the primary buyer's conversion journey: compatibility first for B2C, specs and certifications first for B2B." },
+      { step: "Educational Content", detail: "Designed pre-conversion landing pages ('Which charger?' and 'Installation guide') to reduce buyer uncertainty before reaching the product page." },
+      { step: "Email & Automation", detail: "Designed on-brand transactional email templates and set up Shopify abandoned cart flows to recover high-intent drop-offs." },
+    ],
+    metrics: [
+      { label: "Launch time", value: "6 weeks" },
+      { label: "Conversion flows", value: "B2C + B2B" },
+      { label: "First orders", value: "Within days" },
+      { label: "Email flows set up", value: "4" },
     ],
   },
 
@@ -478,6 +559,7 @@ export const projects: Project[] = [
     category: "WordPress & Web Design",
     year: "2022",
     liveUrl: "https://interview.ba",
+    logoUrl: "https://logo.clearbit.com/interview.ba",
     tags: ["WordPress", "News", "Custom Development", "Interactive Features"],
     role: "Web Designer & Developer",
     overview:
@@ -503,6 +585,7 @@ export const projects: Project[] = [
     category: "WordPress & Web Design",
     year: "2022",
     liveUrl: "https://infohouse.ba",
+    logoUrl: "https://logo.clearbit.com/infohouse.ba",
     tags: ["WordPress", "NGO", "CMS", "Information Architecture"],
     role: "Web Designer & Developer",
     overview:
@@ -528,6 +611,7 @@ export const projects: Project[] = [
     category: "WordPress & Web Design",
     year: "2022",
     liveUrl: "https://kidsinfo.ba",
+    logoUrl: "https://logo.clearbit.com/kidsinfo.ba",
     tags: ["WordPress", "Publishing", "CMS", "Content Architecture"],
     role: "Web Designer & Developer",
     overview:
@@ -553,6 +637,7 @@ export const projects: Project[] = [
     category: "WordPress & Web Design",
     year: "2023",
     liveUrl: "https://orela.ba",
+    logoUrl: "https://logo.clearbit.com/orela.ba",
     tags: ["WordPress", "WooCommerce", "B2B", "E-commerce", "Hospitality"],
     role: "Web Designer & Developer",
     overview:
@@ -578,6 +663,7 @@ export const projects: Project[] = [
     category: "WordPress & Web Design",
     year: "2022",
     liveUrl: "https://irpo.ba",
+    logoUrl: "https://logo.clearbit.com/irpo.ba",
     tags: ["WordPress", "Education", "Government", "Information Architecture"],
     role: "Web Designer & Developer",
     overview:

@@ -28,12 +28,30 @@ const categoryColor: Record<string, string> = {
 
 function ScreenshotOrPlaceholder({
   liveUrl,
+  logoUrl,
   title,
 }: {
   liveUrl: string
+  logoUrl?: string
   title: string
 }) {
   if (!liveUrl) {
+    if (logoUrl) {
+      return (
+        <div className="w-full aspect-[16/9] rounded-xl bg-surface border border-edge flex items-center justify-center overflow-hidden">
+          <div className="relative w-40 h-40 opacity-60">
+            <Image
+              src={logoUrl}
+              alt={`${title} logo`}
+              fill
+              className="object-contain"
+              sizes="160px"
+              unoptimized
+            />
+          </div>
+        </div>
+      )
+    }
     return (
       <div className="w-full aspect-[16/9] rounded-xl bg-surface border border-edge flex items-center justify-center overflow-hidden">
         <p className="text-[clamp(2rem,6vw,5rem)] font-semibold text-fg/10 text-center px-8 leading-tight">
@@ -139,7 +157,7 @@ export default async function CaseStudyPage({ params }: Props) {
           {project.liveUrl && (
             <div>
               <p className="text-xs text-muted uppercase tracking-[0.15em] mb-1">
-                Live Site
+                {project.liveUrl.includes("apps.apple.com") ? "App Store" : "Live Site"}
               </p>
               <a
                 href={project.liveUrl}
@@ -147,7 +165,9 @@ export default async function CaseStudyPage({ params }: Props) {
                 rel="noopener noreferrer"
                 className="text-sm text-accent hover:text-fg transition-colors"
               >
-                {project.liveUrl.replace(/^https?:\/\//, "")} ↗
+                {project.liveUrl.includes("apps.apple.com")
+                  ? "Download on iOS"
+                  : project.liveUrl.replace(/^https?:\/\//, "")} ↗
               </a>
             </div>
           )}
@@ -156,7 +176,7 @@ export default async function CaseStudyPage({ params }: Props) {
 
       {/* ── Screenshot ── */}
       <div className="max-w-6xl mx-auto px-6 mb-24">
-        <ScreenshotOrPlaceholder liveUrl={project.liveUrl} title={project.title} />
+        <ScreenshotOrPlaceholder liveUrl={project.liveUrl} logoUrl={project.logoUrl} title={project.title} />
       </div>
 
       {/* ── Overview ── */}
@@ -204,6 +224,54 @@ export default async function CaseStudyPage({ params }: Props) {
         </ul>
       </section>
 
+      {/* ── Key Metrics ── */}
+      {project.metrics && project.metrics.length > 0 && (
+        <section className="max-w-6xl mx-auto px-6 mb-24">
+          <div
+            className={`grid grid-cols-2 gap-px bg-edge ${
+              project.metrics.length >= 4
+                ? "sm:grid-cols-4"
+                : project.metrics.length === 3
+                ? "sm:grid-cols-3"
+                : ""
+            }`}
+          >
+            {project.metrics.map(({ label, value }) => (
+              <div key={label} className="bg-bg px-8 py-10 text-center">
+                <p className="text-2xl sm:text-3xl font-semibold text-fg mb-2 leading-tight">
+                  {value}
+                </p>
+                <p className="text-xs text-muted uppercase tracking-[0.15em] leading-relaxed">
+                  {label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ── Design Process ── */}
+      {project.process && project.process.length > 0 && (
+        <section className="max-w-6xl mx-auto px-6 mb-24 border-t border-edge pt-16">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-10">
+            Design Process
+          </p>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            {project.process.map(({ step, detail }, i) => (
+              <div key={step} className="flex gap-4">
+                <span className="text-xs font-mono text-muted/40 pt-0.5 shrink-0 w-6">
+                  {String(i + 1).padStart(2, "0")}
+                </span>
+                <div>
+                  <p className="text-sm font-medium text-fg mb-2">{step}</p>
+                  <p className="text-sm text-muted leading-relaxed">{detail}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
       {/* ── CTA ── */}
       {project.liveUrl && (
         <div className="max-w-6xl mx-auto px-6 mb-24">
@@ -213,7 +281,9 @@ export default async function CaseStudyPage({ params }: Props) {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 bg-fg text-bg text-sm font-medium rounded-full hover:bg-accent transition-colors duration-200"
           >
-            Visit live site ↗
+            {project.liveUrl.includes("apps.apple.com")
+              ? "View on App Store ↗"
+              : "Visit live site ↗"}
           </a>
         </div>
       )}

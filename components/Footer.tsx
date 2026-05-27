@@ -29,7 +29,7 @@ export default function Footer() {
         </div>
 
         <div className="flex items-center justify-between border-t border-edge pt-8">
-          <p className="text-xs text-muted">© 2025 Amar Sijercic</p>
+          <p className="text-xs text-muted">© {new Date().getFullYear()} Amar Sijercic</p>
           <p className="text-xs text-muted">Designed & built with care</p>
         </div>
       </div>

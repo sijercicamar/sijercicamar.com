@@ -4,12 +4,12 @@
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 
-  --color-bg: #090908;
-  --color-surface: #111110;
-  --color-fg: #f0ede5;
-  --color-muted: #696663;
-  --color-accent: #c9a87c;
-  --color-edge: #1e1c1a;
+  --color-bg: #0c0b0a;
+  --color-surface: #181715;
+  --color-fg: #f2ede4;
+  --color-muted: #a09890;
+  --color-accent: #57ff8c;
+  --color-edge: #2c2825;
 }
 
 html {
@@ -17,12 +17,12 @@ html {
 }
 
 body {
-  background-color: #090908;
-  color: #f0ede5;
+  background-color: #0c0b0a;
+  color: #f2ede4;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 ::selection {
-  background-color: color-mix(in oklch, #c9a87c 28%, transparent);
+  background-color: color-mix(in oklch, #57ff8c 25%, transparent);
 }

@@ -38,7 +38,7 @@ function ProjectCard({ project }: { project: Project }) {
       href={`/work/${project.slug}`}
       className="group block bg-surface border border-edge rounded-xl overflow-hidden hover:border-muted/30 transition-all duration-200"
     >
-      {/* Screenshot */}
+      {/* Screenshot / Logo / Placeholder */}
       <div className="relative w-full aspect-[16/10] bg-bg overflow-hidden">
         {screenshotUrl ? (
           <Image
@@ -49,6 +49,19 @@ function ProjectCard({ project }: { project: Project }) {
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
             unoptimized
           />
+        ) : project.logoUrl ? (
+          <div className="absolute inset-0 flex items-center justify-center bg-surface">
+            <div className="relative w-24 h-24 opacity-70 group-hover:opacity-100 transition-opacity duration-300">
+              <Image
+                src={project.logoUrl}
+                alt={`${project.title} logo`}
+                fill
+                className="object-contain"
+                sizes="96px"
+                unoptimized
+              />
+            </div>
+          </div>
         ) : (
           <div className="absolute inset-0 flex items-center justify-center">
             <p className="text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-fg/8 text-center px-6 leading-tight select-none">

@@ -4,15 +4,17 @@ import path from "path"
 import Link from "next/link"
 
 const expertise = [
+  "Conversion Rate Optimization (CRO)",
+  "E-commerce & Shopify Design",
+  "Email & Landing Page Design",
+  "A/B Testing & Experimentation",
   "Product Design",
   "UX Research",
   "Design Systems",
-  "Interaction Design",
-  "Prototyping & Testing",
   "Visual Design",
 ]
 
-const tools = ["Figma", "FigJam", "Framer", "Principle", "Maze", "Notion"]
+const tools = ["Figma", "ChatGPT & Claude", "Shopify", "ClickUp & Loom", "Framer & Webflow", "Maze & FigJam"]
 
 export default function About() {
   const hasPhoto = existsSync(path.join(process.cwd(), "public", "amar.jpg"))
@@ -73,16 +75,20 @@ export default function About() {
                 About
               </p>
               <p className="text-xl text-muted leading-relaxed mb-6">
-                I'm a Senior UX/UI Designer with a deep passion for turning
-                complex problems into clear, elegant digital products.
+                I'm a Senior UX/UI Designer specializing in conversion-focused
+                digital experiences — e-commerce stores, landing pages, email
+                flows, and SaaS products.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                My process is rooted in understanding people first — their
-                goals, frustrations, and mental models — and then translating
-                that understanding into interfaces that feel effortless.
-                Whether shaping a product from 0 to 1 or refining an existing
-                experience, I bring both strategic thinking and strong craft.
-                Good design, to me, is invisible — it just works.
+                My work sits at the intersection of strong visual craft and
+                measurable performance. I design for how users actually behave
+                — mapping drop-off points, reducing friction, and testing
+                assumptions — while keeping the experience genuinely enjoyable.
+                I've worked across Shopify e-commerce, AI-powered marketing
+                platforms, fintech apps, and content-heavy products, often
+                collaborating with performance marketing and CRO teams. I also
+                integrate AI tools (Claude, ChatGPT) into my workflow for
+                faster ideation, copy exploration, and design iteration.
               </p>
             </div>
 
@@ -124,7 +130,7 @@ export default function About() {
             <div className="pt-4">
               <Link
                 href="/work"
-                className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg transition-colors duration-150"
+                className="inline-flex items-center gap-2 text-sm text-muted hover:text-accent transition-colors duration-150"
               >
                 View all work →
               </Link>

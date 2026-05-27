@@ -2,7 +2,7 @@ export default function Hero() {
   return (
     <section className="min-h-screen flex flex-col justify-center px-6 pt-16">
       <div className="max-w-6xl mx-auto w-full py-24">
-        <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-8">
+        <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-8">
           Senior UX/UI Designer
         </p>
 
@@ -12,14 +12,15 @@ export default function Hero() {
         </h1>
 
         <p className="text-lg text-muted max-w-lg mb-12 leading-relaxed">
-          I craft digital experiences that are intentional, accessible, and
-          genuinely useful — from product strategy to pixel-perfect interfaces.
+          I design conversion-focused digital experiences — e-commerce stores,
+          landing pages, email flows, and SaaS dashboards. Strong craft,
+          research-driven, built to perform.
         </p>
 
         <div className="flex flex-wrap items-center gap-3">
           <a
             href="#work"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-fg text-bg text-sm font-medium rounded-full hover:bg-accent transition-colors duration-200"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-fg text-bg text-sm font-medium rounded-full hover:bg-accent hover:shadow-[0_0_18px_rgba(87,255,140,0.35)] transition-all duration-200"
           >
             View Work
             <span aria-hidden="true">↓</span>
