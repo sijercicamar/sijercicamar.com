@@ -750,6 +750,7 @@ export const projects: Project[] = [
     tagline: "A public institution's website redesigned around the people it serves",
     category: "WordPress & Web Design",
     year: "2022",
+    coverImage: "/projects/irpo-ba.webp",
     liveUrl: "https://irpo.ba",
     logoUrl: "https://logo.clearbit.com/irpo.ba",
     tags: ["WordPress", "Education", "Government", "Information Architecture"],
