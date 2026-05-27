@@ -669,6 +669,7 @@ export const projects: Project[] = [
     tagline: "A civic institution's website that balances authority with approachability",
     category: "WordPress & Web Design",
     year: "2022",
+    coverImage: "/projects/infohouse-ba.webp",
     liveUrl: "https://infohouse.ba",
     logoUrl: "https://logo.clearbit.com/infohouse.ba",
     tags: ["WordPress", "NGO", "CMS", "Information Architecture"],
