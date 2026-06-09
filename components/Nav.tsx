@@ -17,6 +17,7 @@ export default function Nav() {
 
   const links = [
     { label: "Work", href: "/work" },
+    { label: "Blog", href: "/blog" },
     { label: "About", href: isHome ? "#about" : "/#about" },
     { label: "Contact", href: isHome ? "#contact" : "/#contact" },
   ];
@@ -37,7 +38,8 @@ export default function Nav() {
         <ul className="flex items-center gap-10">
           {links.map(({ label, href }) => {
             const isActive =
-              label === "Work" && pathname.startsWith("/work");
+              (label === "Work" && pathname.startsWith("/work")) ||
+              (label === "Blog" && pathname.startsWith("/blog"));
             return (
               <li key={label}>
                 <Link
