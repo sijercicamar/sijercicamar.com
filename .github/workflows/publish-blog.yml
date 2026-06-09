@@ -1,0 +1,62 @@
+name: Publish scheduled blog posts
+
+# Publishes any blog post in lib/posts.ts whose `date` has arrived
+# (Europe/Sarajevo), by flipping `draft: true` -> `draft: false` and pushing.
+# Pushing to main triggers a Vercel deploy, so the post goes live.
+#
+# Runs on GitHub's servers — independent of any laptop being on.
+
+on:
+  schedule:
+    # 07:00 UTC = 09:00 Europe/Sarajevo during CEST (summer, +02:00).
+    # In winter (CET, +01:00) this fires at 08:00 local — the post still
+    # publishes on the correct day; only the hour shifts. GitHub may also
+    # delay scheduled runs by a few minutes under load.
+    - cron: "0 7 * * *"
+  workflow_dispatch: {} # allow manual "Run workflow" from the Actions tab
+
+permissions:
+  contents: write
+
+# Never let two runs publish at the same time.
+concurrency:
+  group: publish-blog
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Flip any due drafts to published
+        id: publish
+        run: |
+          node scripts/publish-due-posts.mjs
+          if git diff --quiet -- lib/posts.ts; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing due today."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Verify it still builds
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit & push
+        if: steps.publish.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add lib/posts.ts
+          git commit -m "Publish scheduled blog post(s)"
+          git push
