@@ -11,8 +11,50 @@ import {
   AUTHOR,
 } from "@/lib/posts"
 import type { ContentBlock } from "@/lib/posts"
+import type { ReactNode } from "react"
 
 type Props = { params: Promise<{ slug: string }> }
+
+// Minimal inline renderer: **bold**, *italic*, and [label](url) links.
+function renderInline(text: string): ReactNode[] {
+  const nodes: ReactNode[] = []
+  const regex = /\*\*([^*]+?)\*\*|\*([^*]+?)\*|\[([^\]]+)\]\(([^)]+)\)/g
+  let last = 0
+  let key = 0
+  let m: RegExpExecArray | null
+  while ((m = regex.exec(text)) !== null) {
+    if (m.index > last) nodes.push(text.slice(last, m.index))
+    if (m[1] !== undefined) {
+      nodes.push(
+        <strong key={key++} className="font-semibold text-fg">
+          {m[1]}
+        </strong>
+      )
+    } else if (m[2] !== undefined) {
+      nodes.push(
+        <em key={key++} className="italic">
+          {m[2]}
+        </em>
+      )
+    } else if (m[3] !== undefined) {
+      const href = m[4]
+      const external = /^https?:\/\//.test(href)
+      nodes.push(
+        <a
+          key={key++}
+          href={href}
+          className="text-accent hover:text-fg underline underline-offset-2 transition-colors"
+          {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+        >
+          {m[3]}
+        </a>
+      )
+    }
+    last = regex.lastIndex
+  }
+  if (last < text.length) nodes.push(text.slice(last))
+  return nodes
+}
 
 export async function generateStaticParams() {
   return getVisiblePosts().map((p) => ({ slug: p.slug }))
@@ -31,14 +73,23 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 function Block({ block }: { block: ContentBlock }) {
   switch (block.type) {
     case "heading":
+      if (block.level === 3) {
+        return (
+          <h3 className="text-xl font-semibold text-fg tracking-tight mt-10 mb-3">
+            {renderInline(block.text)}
+          </h3>
+        )
+      }
       return (
         <h2 className="text-2xl font-semibold text-fg tracking-tight mt-14 mb-4">
-          {block.text}
+          {renderInline(block.text)}
         </h2>
       )
     case "paragraph":
       return (
-        <p className="text-lg text-fg/80 leading-[1.8] mb-6">{block.text}</p>
+        <p className="text-lg text-fg/80 leading-[1.8] mb-6">
+          {renderInline(block.text)}
+        </p>
       )
     case "quote":
       return (
@@ -59,7 +110,9 @@ function Block({ block }: { block: ContentBlock }) {
           {block.items.map((item) => (
             <li key={item} className="flex items-start gap-3">
               <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0 mt-3" />
-              <span className="text-lg text-fg/80 leading-[1.8]">{item}</span>
+              <span className="text-lg text-fg/80 leading-[1.8]">
+                {renderInline(item)}
+              </span>
             </li>
           ))}
         </ul>
@@ -67,7 +120,7 @@ function Block({ block }: { block: ContentBlock }) {
     case "image":
       return (
         <figure className="my-10">
-          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-edge bg-surface">
+          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-edge bg-surface">
             <Image
               src={block.src}
               alt={block.alt ?? ""}
@@ -143,7 +196,7 @@ export default async function BlogPostPage({ params }: Props) {
       {/* ── Cover ── */}
       {post.coverImage && (
         <div className="max-w-3xl mx-auto px-6 mb-12">
-          <div className="relative w-full aspect-[16/9] rounded-xl overflow-hidden border border-edge bg-surface">
+          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-edge bg-surface">
             <Image
               src={post.coverImage}
               alt={post.title}

@@ -10,7 +10,7 @@ function PostCard({ post }: { post: Post }) {
       className="group flex flex-col bg-surface border border-edge rounded-2xl overflow-hidden hover:border-muted/30 transition-all duration-300"
     >
       {/* Cover */}
-      <div className="relative w-full aspect-[16/10] bg-bg overflow-hidden">
+      <div className="relative w-full aspect-[4/3] bg-bg overflow-hidden">
         {post.coverImage ? (
           <Image
             src={post.coverImage}
