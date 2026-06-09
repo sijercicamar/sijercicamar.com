@@ -77,7 +77,18 @@ export default function BlogGrid() {
           ))}
         </div>
       ) : (
-        <p className="text-muted text-center py-24">No posts yet — check back soon.</p>
+        <div className="text-center py-24 sm:py-32">
+          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">
+            Coming soon
+          </p>
+          <p className="text-2xl sm:text-3xl font-semibold text-fg mb-3">
+            New posts are on the way
+          </p>
+          <p className="text-muted max-w-md mx-auto leading-relaxed">
+            I&apos;m putting the finishing touches on the first articles — on
+            design, UX, and building for the web. Check back shortly.
+          </p>
+        </div>
       )}
     </div>
   )
