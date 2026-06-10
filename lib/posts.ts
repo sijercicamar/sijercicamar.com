@@ -328,7 +328,7 @@ export const posts: Post[] = [
     date: "2026-06-10",
     coverImage: "/blog/why-your-landing-page-isnt-converting.webp",
     tags: ["UX", "Conversion", "Landing Pages"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `You've invested in the design. The copy is polished. The CTA button is above the fold, bright, and impossible to miss. And yet — the conversion rate is sitting at 1.2% and nobody knows why.` },
       { type: "paragraph", text: `Most teams blame the wrong things. They A/B test button colors, tweak headlines, and rearrange sections — optimizing the surface while the real problem sits untouched underneath. This post is about how to actually diagnose a landing page that isn't converting.` },
