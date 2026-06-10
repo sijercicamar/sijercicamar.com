@@ -128,7 +128,7 @@ export default function Nav() {
           aria-hidden="true"
           className="pointer-events-none absolute inset-0 bg-gradient-to-bl from-fg/[0.08] via-transparent to-transparent"
         />
-        <nav className="relative z-10 flex h-full flex-col gap-2 px-7 pt-28 pb-10">
+        <nav className="relative z-10 flex h-full flex-col gap-7 px-7 pt-28 pb-10">
           {links.map(({ label, href }, i) => (
             <Link
               key={label}
@@ -140,7 +140,7 @@ export default function Nav() {
               } ${
                 isActiveLink(label)
                   ? "text-accent"
-                  : "text-fg/80 hover:text-fg"
+                  : "text-fg hover:text-accent"
               }`}
             >
               {label}
