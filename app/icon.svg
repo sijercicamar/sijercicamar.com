@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
   <rect width="32" height="32" rx="7" fill="#0c0b0a"/>
-  <path fill-rule="evenodd" d="M16 7 L23.5 25 H20.5 L18.8 20.5 H13.2 L11.5 25 H8.5 Z M16 11.5 L14.1 18 H17.9 Z" fill="#57ff8c"/>
+  <text x="7.5" y="23.5" font-family="system-ui, -apple-system, 'Segoe UI', Helvetica, Arial, sans-serif" font-size="21" font-weight="700" fill="#f2ede4">a</text>
+  <circle cx="22" cy="21.5" r="2.7" fill="#57ff8c"/>
 </svg>

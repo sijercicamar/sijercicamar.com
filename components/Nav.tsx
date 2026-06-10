@@ -58,7 +58,7 @@ export default function Nav() {
           href="/"
           className="relative z-50 text-base font-semibold text-fg hover:text-accent transition-colors duration-200 tracking-tight"
         >
-          Amar Sijercic
+          Amar Sijercic<span className="text-accent">.</span>
         </Link>
 
         {/* Desktop links */}

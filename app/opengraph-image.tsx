@@ -40,14 +40,16 @@ export default function OpengraphImage() {
         <div style={{ display: "flex", flexDirection: "column" }}>
           <div
             style={{
-              color: "#f2ede4",
+              display: "flex",
+              alignItems: "baseline",
               fontSize: 96,
               fontWeight: 700,
               lineHeight: 1.05,
               letterSpacing: -2,
             }}
           >
-            Amar Sijercic
+            <span style={{ color: "#f2ede4" }}>Amar Sijercic</span>
+            <span style={{ color: "#57ff8c" }}>.</span>
           </div>
           <div
             style={{
