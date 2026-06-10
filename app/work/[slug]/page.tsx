@@ -3,6 +3,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
 import { getProjectBySlug, getAdjacentProjects, projects } from "@/lib/projects"
+import { SITE } from "@/lib/site"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -14,9 +15,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const project = getProjectBySlug(slug)
   if (!project) return {}
+  const images = project.coverImage ? [project.coverImage] : undefined
   return {
-    title: `${project.title} — Amar Sijercic`,
+    title: project.title,
     description: project.tagline,
+    alternates: { canonical: `/work/${project.slug}` },
+    openGraph: {
+      title: project.title,
+      description: project.tagline,
+      url: `${SITE.url}/work/${project.slug}`,
+      type: "article",
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: project.title,
+      description: project.tagline,
+      images,
+    },
   }
 }
 

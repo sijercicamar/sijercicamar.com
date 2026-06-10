@@ -1,11 +1,20 @@
 import type { Metadata } from "next"
 import Nav from "@/components/Nav"
 import WorkGrid from "@/components/WorkGrid"
+import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Work — Amar Sijercic",
+  title: "Work",
   description:
-    "Selected projects by Amar Sijercic across UX/UI design, Webflow, and WordPress.",
+    "Selected UX/UI design, CRO, Webflow, and WordPress projects by Amar Sijercic — across startups, SaaS platforms, and e-commerce.",
+  alternates: { canonical: "/work" },
+  openGraph: {
+    title: "Work — Amar Sijercic",
+    description:
+      "Selected UX/UI design, CRO, Webflow, and WordPress projects by Amar Sijercic.",
+    url: `${SITE.url}/work`,
+    type: "website",
+  },
 }
 
 export default function WorkPage() {

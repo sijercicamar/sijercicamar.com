@@ -12,6 +12,8 @@ import {
 } from "@/lib/posts"
 import type { ContentBlock } from "@/lib/posts"
 import type { ReactNode } from "react"
+import JsonLd from "@/components/JsonLd"
+import { SITE } from "@/lib/site"
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -64,9 +66,26 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const post = getPostBySlug(slug)
   if (!post) return {}
+  const images = post.coverImage ? [post.coverImage] : undefined
   return {
-    title: `${post.title} — Amar Sijercic`,
+    title: post.title,
     description: post.description,
+    alternates: { canonical: `/blog/${post.slug}` },
+    openGraph: {
+      title: post.title,
+      description: post.description,
+      url: `${SITE.url}/blog/${post.slug}`,
+      type: "article",
+      publishedTime: new Date(post.date).toISOString(),
+      authors: [SITE.author],
+      images,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.description,
+      images,
+    },
   }
 }
 
@@ -148,8 +167,35 @@ export default async function BlogPostPage({ params }: Props) {
 
   const { prev, next } = getAdjacentPosts(slug)
 
+  const postUrl = `${SITE.url}/blog/${post.slug}`
+  const published = new Date(post.date).toISOString()
+  const articleLd = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    headline: post.title,
+    description: post.description,
+    datePublished: published,
+    dateModified: published,
+    author: { "@type": "Person", name: SITE.author, url: SITE.url },
+    publisher: { "@type": "Person", name: SITE.author, url: SITE.url },
+    image: post.coverImage ? `${SITE.url}${post.coverImage}` : `${postUrl}/opengraph-image`,
+    url: postUrl,
+    mainEntityOfPage: postUrl,
+    keywords: post.tags.join(", "),
+  }
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Blog", item: `${SITE.url}/blog` },
+      { "@type": "ListItem", position: 2, name: post.title, item: postUrl },
+    ],
+  }
+
   return (
     <main className="min-h-screen bg-bg">
+      <JsonLd data={articleLd} />
+      <JsonLd data={breadcrumbLd} />
       {/* ── Back link ── */}
       <div className="max-w-3xl mx-auto px-6 pt-8">
         <Link

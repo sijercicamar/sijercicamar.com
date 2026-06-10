@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import { SITE } from "@/lib/site";
 import "./globals.css";
 
 const geist = Geist({
@@ -14,16 +15,32 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Amar Sijercic — Senior UX/UI Designer",
-  description:
-    "Portfolio of Amar Sijercic, a Senior UX/UI Designer crafting intentional and human-centered digital experiences.",
+  metadataBase: new URL(SITE.url),
+  title: {
+    default: SITE.title,
+    template: "%s — Amar Sijercic",
+  },
+  description: SITE.description,
+  keywords: [...SITE.keywords],
+  authors: [{ name: SITE.author, url: SITE.url }],
+  creator: SITE.author,
   openGraph: {
-    title: "Amar Sijercic — Senior UX/UI Designer",
-    description:
-      "Portfolio of Amar Sijercic, a Senior UX/UI Designer crafting intentional and human-centered digital experiences.",
-    url: "https://sijercicamar.com",
-    siteName: "Amar Sijercic",
+    title: SITE.title,
+    description: SITE.description,
+    url: SITE.url,
+    siteName: SITE.name,
+    locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: SITE.title,
+    description: SITE.description,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
 };
 

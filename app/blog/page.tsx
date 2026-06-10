@@ -1,11 +1,20 @@
 import type { Metadata } from "next"
 import Nav from "@/components/Nav"
 import BlogGrid from "@/components/BlogGrid"
+import { SITE } from "@/lib/site"
 
 export const metadata: Metadata = {
-  title: "Blog — Amar Sijercic",
+  title: "Blog",
   description:
-    "Notes on product design, frontend craft, and building for the web by Amar Sijercic.",
+    "Articles on UX/UI design, conversion rate optimization (CRO), and building high-converting websites — by Amar Sijercic.",
+  alternates: { canonical: "/blog" },
+  openGraph: {
+    title: "Blog — Amar Sijercic",
+    description:
+      "Articles on UX/UI design, conversion rate optimization (CRO), and building high-converting websites.",
+    url: `${SITE.url}/blog`,
+    type: "website",
+  },
 }
 
 export default function BlogPage() {
