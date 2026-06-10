@@ -110,7 +110,7 @@ export default function Nav() {
       <div
         onClick={() => setOpen(false)}
         aria-hidden="true"
-        className={`fixed inset-0 z-40 bg-bg/40 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-bg/60 backdrop-blur-md transition-opacity duration-300 md:hidden ${
           open ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       />
@@ -119,7 +119,7 @@ export default function Nav() {
       <aside
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed top-0 right-0 z-40 h-dvh w-[78%] max-w-xs overflow-hidden border-l border-fg/12 bg-bg/40 backdrop-blur-3xl backdrop-saturate-150 shadow-[-24px_0_60px_-20px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed top-0 right-0 z-40 h-dvh w-[78%] max-w-xs overflow-hidden border-l border-fg/12 bg-bg/90 backdrop-blur-3xl backdrop-saturate-150 shadow-[-24px_0_60px_-20px_rgba(0,0,0,0.7)] transition-transform duration-300 ease-out md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
