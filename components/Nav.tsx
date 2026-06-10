@@ -115,15 +115,20 @@ export default function Nav() {
         }`}
       />
 
-      {/* Slide-out glass panel */}
+      {/* Slide-out frosted-glass panel */}
       <aside
         id="mobile-menu"
         aria-hidden={!open}
-        className={`fixed top-0 right-0 z-40 h-dvh w-[78%] max-w-xs border-l border-edge bg-surface/60 backdrop-blur-2xl backdrop-saturate-150 shadow-2xl transition-transform duration-300 ease-out md:hidden ${
+        className={`fixed top-0 right-0 z-40 h-dvh w-[78%] max-w-xs overflow-hidden border-l border-fg/12 bg-bg/40 backdrop-blur-3xl backdrop-saturate-150 shadow-[-24px_0_60px_-20px_rgba(0,0,0,0.6)] transition-transform duration-300 ease-out md:hidden ${
           open ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        <nav className="flex h-full flex-col gap-2 px-7 pt-28 pb-10">
+        {/* frosted sheen */}
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 bg-gradient-to-bl from-fg/[0.08] via-transparent to-transparent"
+        />
+        <nav className="relative z-10 flex h-full flex-col gap-2 px-7 pt-28 pb-10">
           {links.map(({ label, href }, i) => (
             <Link
               key={label}
