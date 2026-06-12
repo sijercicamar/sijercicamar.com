@@ -292,7 +292,7 @@ export const posts: Post[] = [
     date: "2026-06-12",
     coverImage: "/blog/what-users-decide-in-5-seconds.webp",
     tags: ["UX", "First Impressions"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `There's a test UX designers use called the five-second test. You show someone a page for exactly five seconds, take it away, and ask: what do you remember? What was the page about? What could you do on it?` },
       { type: "paragraph", text: `The results are consistently humbling. Users remember the headline (sometimes), the hero image (usually), and the general feeling of the page. They rarely remember the subheadline. They almost never remember the feature list. And if the page felt cluttered or unclear — that's the only thing they remember.` },
