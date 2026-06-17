@@ -259,7 +259,7 @@ export const posts: Post[] = [
     date: "2026-06-17",
     coverImage: "/blog/white-space-like-a-senior-designer.webp",
     tags: ["Design", "Layout"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `Ask a junior designer what white space is, and they'll say "the empty parts." Ask a senior designer, and they'll say "everything that isn't competing for attention."` },
       { type: "paragraph", text: `That shift in framing changes everything about how you design.` },
