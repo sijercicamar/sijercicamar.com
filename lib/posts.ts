@@ -213,7 +213,7 @@ export const posts: Post[] = [
     date: "2026-06-19",
     coverImage: "/blog/anatomy-of-a-high-converting-hero.webp",
     tags: ["Conversion", "Web Design"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `The hero section is the most valuable real estate on your website. It's what every visitor sees first, and it's where most of them decide whether to keep reading or leave. A well-designed hero doesn't just look good — it does a specific job.` },
       { type: "paragraph", text: `That job is to answer four questions in under three seconds: What is this? Who is it for? Why should I care? What do I do next?` },
