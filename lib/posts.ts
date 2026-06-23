@@ -176,7 +176,7 @@ export const posts: Post[] = [
     date: "2026-06-23",
     coverImage: "/blog/mobile-first-design.webp",
     tags: ["Mobile", "UX"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `Mobile-first design is one of those terms that gets used so often it's started to lose its meaning. Teams say they're doing mobile-first when they mean they're testing their desktop design on a mobile screen at the end of the project. That's not mobile-first. That's mobile-last with good intentions.` },
       { type: "paragraph", text: `The distinction matters because the approach you start with determines almost everything about the outcome.` },
