@@ -124,7 +124,7 @@ export const posts: Post[] = [
     date: "2026-06-25",
     coverImage: "/blog/the-ux-audit-framework.webp",
     tags: ["UX", "Audits"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `Most UX problems don't announce themselves. They show up as bounce rates, abandoned carts, and support tickets — symptoms rather than diagnoses. A UX audit is the process of finding the problems before your users vote with their feet.` },
       { type: "paragraph", text: `This isn't about redesigning from scratch. A proper audit tells you specifically what's broken, where it's broken, and why — so you fix the right things in the right order.` },
