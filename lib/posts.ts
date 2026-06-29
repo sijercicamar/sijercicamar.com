@@ -82,7 +82,7 @@ export const posts: Post[] = [
     date: "2026-06-29",
     coverImage: "/blog/design-systems-101.webp",
     tags: ["Design Systems", "Product"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `Every design team eventually hits the same wall. The product has grown, multiple designers (or a designer and developers) are working on it, and slowly — component by component, screen by screen — it starts to diverge. A button looks slightly different on the checkout page than on the settings screen. The spacing in the mobile app is different from the website. The error messages don't follow the same pattern. None of it is catastrophically wrong. But none of it quite coheres.` },
       { type: "paragraph", text: `This is the problem a design system solves.` },
