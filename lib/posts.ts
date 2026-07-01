@@ -48,7 +48,7 @@ export const posts: Post[] = [
     date: "2026-07-01",
     coverImage: "/blog/above-the-fold-in-2026.webp",
     tags: ["UX", "Web Design"],
-    draft: true,
+    draft: false,
     body: [
       { type: "paragraph", text: `"Above the fold" is one of those design terms that's been declared dead so many times it's almost become a cliché to discuss it. And yet — the debate continues. Does the first screen still matter? Do users actually scroll? Has infinite scroll, Instagram, and TikTok fundamentally changed how people interact with web pages?` },
       { type: "paragraph", text: `The answer, as with most things in UX, is more nuanced than either side admits.` },
