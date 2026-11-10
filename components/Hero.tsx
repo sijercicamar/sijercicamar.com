@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export default function Hero() {
   return (
-    <section className="min-h-screen flex flex-col justify-end px-6 pt-16 overflow-hidden">
+    <section className="min-h-[min(100svh,56rem)] flex flex-col justify-end px-6 pt-24 overflow-hidden">
       <div className="max-w-6xl mx-auto w-full">
         <div className="grid md:grid-cols-[1fr_460px] lg:grid-cols-[1fr_560px] xl:grid-cols-[1fr_620px] items-end gap-8">
 
