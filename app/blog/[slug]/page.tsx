@@ -239,22 +239,6 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
       </header>
 
-      {/* ── Cover ── */}
-      {post.coverImage && (
-        <div className="max-w-3xl mx-auto px-6 mb-12">
-          <div className="relative w-full aspect-[4/3] rounded-xl overflow-hidden border border-edge bg-surface">
-            <Image
-              src={post.coverImage}
-              alt={post.title}
-              fill
-              priority
-              className="object-cover object-top"
-              sizes="(max-width: 768px) 100vw, 768px"
-            />
-          </div>
-        </div>
-      )}
-
       {/* ── Body ── */}
       <article className="max-w-3xl mx-auto px-6 pb-20">
         {post.body.map((block, i) => (
