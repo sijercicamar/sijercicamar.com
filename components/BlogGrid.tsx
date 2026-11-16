@@ -1,5 +1,4 @@
 import Link from "next/link"
-import Image from "next/image"
 import { getVisiblePosts, formatDate, readingTime, AUTHOR } from "@/lib/posts"
 import type { Post } from "@/lib/posts"
 
@@ -9,26 +8,6 @@ function PostCard({ post }: { post: Post }) {
       href={`/blog/${post.slug}`}
       className="group flex flex-col bg-surface border border-edge rounded-2xl overflow-hidden hover:border-muted/30 transition-all duration-300"
     >
-      {/* Cover */}
-      <div className="relative w-full aspect-[4/3] bg-bg overflow-hidden">
-        {post.coverImage ? (
-          <Image
-            src={post.coverImage}
-            alt={post.title}
-            fill
-            className="object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
-        ) : (
-          <div className="absolute inset-0 flex items-center justify-center bg-[radial-gradient(120%_120%_at_50%_0%,rgba(87,255,140,0.08),transparent_60%)]">
-            <p className="text-[clamp(1.25rem,3vw,2.5rem)] font-semibold text-fg/10 text-center px-6 leading-tight select-none">
-              {post.title}
-            </p>
-          </div>
-        )}
-        <div className="absolute inset-0 bg-bg/0 group-hover:bg-bg/8 transition-colors duration-300" />
-      </div>
-
       {/* Body */}
       <div className="p-6 flex flex-col gap-3 flex-1">
         {post.tags.length > 0 && (
