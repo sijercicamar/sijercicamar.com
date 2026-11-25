@@ -561,6 +561,24 @@ export const projects: Project[] = [
     liveUrl: "https://www.flappingo.com/home/hosts",
     logoUrl: "https://logo.clearbit.com/flappingo.com",
     tags: ["Web App", "Mobile", "Community Platform", "Travel", "UX Design", "Figma"],
+    adminDashboard: {
+      summary:
+        "I designed the admin panel the team uses to keep the community safe and running: users and their roles, reports, references between members, and admin access.",
+      points: [
+        "Dashboard with registered users, trips, accommodations, messages, hosts and travellers at a glance",
+        "Users filtered by role (host, traveller, house swap, adventures, events) or incomplete profiles",
+        "Reports from members with proof attachments and an accepted, rejected or in-review status",
+        "References between members with ratings, reported and deleted flags",
+        "Admin accounts, admin logs and analytics",
+      ],
+      images: [
+        { src: "/work/flappingo/admin-dashboard.webp", caption: "Dashboard", width: 1440, height: 1215 },
+        { src: "/work/flappingo/admin-users.webp", caption: "Users with role filters", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-reports.webp", caption: "Reports", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-references.webp", caption: "References", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-admins.webp", caption: "Admins", width: 1440, height: 1024 },
+      ],
+    },
     role: "UX/UI Designer",
     overview:
       "FlappinGo is a home exchange and hospitality-sharing platform connecting travellers with hosts across Europe. The product spans a responsive web app and a native mobile experience, built around the idea that meaningful travel doesn't have to be expensive — it requires trust, transparency, and a design system that makes hosts and guests feel equally comfortable. The platform supports listings, traveller profiles, exchange coordination, local meetups, and community events.",
