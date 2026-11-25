@@ -50,6 +50,7 @@ All paths are in `/public`. Recommended ratio 16:10 (they are cropped from the t
 - `/public/work/ajandekbar/admin-dashboard.png`
 - `/public/work/matekvar/admin-dashboard.png`
 - `/public/work/zicer-ba/admin-dashboard.png`
+- My Career Shop (text done, screens pending): `/public/work/mycareer-shop/admin-{dashboard,disputes,claim-accept,claim-reject,advisors,advisor-profile}.webp`; add `width`/`height` in `lib/projects.ts` so tall screens aren't cropped
 
 ## 3. Existing claims flagged (not changed, please decide)
 

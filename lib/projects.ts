@@ -23,7 +23,7 @@ export type Project = {
     summary: string
     points?: string[]
     /** Screenshots (1440×1024), each shown once its file exists in /public. */
-    images?: { src: string; caption?: string }[]
+    images?: { src: string; caption?: string; width?: number; height?: number }[]
   }
 }
 
@@ -215,6 +215,24 @@ export const projects: Project[] = [
     coverImage: "/projects/mycareer-shop.webp",
     liveUrl: "https://mycareershop.com/",
     tags: ["SaaS", "Marketplace", "Landing Pages", "Conversion Design", "UX Research", "Figma"],
+    adminDashboard: {
+      summary:
+        "I designed the admin panel the team uses to run the marketplace: users, bookings and payments, disputes and refunds, and the quality of every advisor.",
+      points: [
+        "Dashboard with advisors, advisees and open disputes, plus user management and recent bookings and payments",
+        "Dispute handling: review a claim with its booking details, then accept it (with a Stripe refund where needed) or reject it with a reason",
+        "Advisor list with verification, bookability, ratings, cancellations, no-shows and a commission setting",
+        "Advisor profile with Stripe, LinkedIn and calendar connection status, services, reviews and an activity log",
+      ],
+      images: [
+        { src: "/work/mycareer-shop/admin-dashboard.webp", caption: "Dashboard" },
+        { src: "/work/mycareer-shop/admin-disputes.webp", caption: "Disputes" },
+        { src: "/work/mycareer-shop/admin-claim-accept.webp", caption: "Accepting a claim" },
+        { src: "/work/mycareer-shop/admin-claim-reject.webp", caption: "Rejecting a claim" },
+        { src: "/work/mycareer-shop/admin-advisors.webp", caption: "Advisors" },
+        { src: "/work/mycareer-shop/admin-advisor-profile.webp", caption: "Advisor profile" },
+      ],
+    },
     role: "Lead UX/UI Designer",
     overview:
       "My Career Shop is a career guidance platform for Canada and the US that combines two things most platforms treat as separate: a counselor booking marketplace and a 1,000+ page career knowledge hub. The product had to convert visitors into paid bookings while simultaneously generating the kind of organic search traffic that makes paid acquisition unnecessary. Both goals lived or died on design decisions.",
