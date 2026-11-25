@@ -39,14 +39,13 @@ All paths are in `/public`. Recommended ratio 16:10 (they are cropped from the t
 - `/public/work/standup-republic/journey-comedian.png`: comedian journey map
 - `/public/work/standup-republic/journey-promoter.png`: promoter journey map
 - `/public/work/standup-republic/journey-ticket-buyer.png`: ticket buyer journey map
-- `/public/work/standup-republic/admin.png`: admin layer
 - `/public/work/standup-republic/comedian-payout-dashboard.png`: comedian application and payout dashboard
 - `/public/work/standup-republic/promoter-sales-analytics.png`: promoter event publishing and sales analytics
 - `/public/work/standup-republic/ticket-purchase-qr.png`: ticket purchase and QR entry (mobile)
 - `/public/work/standup-republic/native-apps.png`: native app screens
 
 **Admin dashboard screenshots** (one per project, shown in its "Admin dashboard" section)
-- `/public/work/standup-republic/admin-dashboard.png`
+- ~~StandUp Republic~~: done, 10 admin screenshots added (`/public/work/standup-republic/admin-*.webp`)
 - `/public/work/persuava/admin-dashboard.png`
 - `/public/work/ajandekbar/admin-dashboard.png`
 - `/public/work/matekvar/admin-dashboard.png`

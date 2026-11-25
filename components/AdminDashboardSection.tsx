@@ -1,10 +1,18 @@
 import type { Project } from "@/lib/projects"
-import { ImageSlot } from "@/components/ImageSlot"
+import { ImageSlot, imageExists } from "@/components/ImageSlot"
+import { SHOW_DRAFTS } from "@/lib/draft"
 
 /** "Admin dashboard" section on a project page, for projects that had one. */
 export default function AdminDashboardSection({ project }: { project: Project }) {
   const admin = project.adminDashboard
   if (!admin) return null
+  const images = (admin.images ?? []).filter((i) => SHOW_DRAFTS || imageExists(i.src))
+  const [first, ...rest] = images
+  const slot = (i: { src: string; caption?: string }) => ({
+    src: i.src,
+    alt: `${project.title} admin: ${i.caption ?? "dashboard"}`,
+    caption: i.caption,
+  })
 
   return (
     <section className="max-w-6xl mx-auto px-6 mb-24 border-t border-edge pt-16">
@@ -26,9 +34,16 @@ export default function AdminDashboardSection({ project }: { project: Project })
           )}
         </div>
       </div>
-      {admin.image && (
+      {first && (
         <div className="mt-10">
-          <ImageSlot slot={{ src: admin.image, alt: `${project.title} admin dashboard` }} />
+          <ImageSlot slot={slot(first)} aspect="aspect-[1440/1024]" />
+        </div>
+      )}
+      {rest.length > 0 && (
+        <div className="mt-6 grid md:grid-cols-2 gap-6">
+          {rest.map((i) => (
+            <ImageSlot key={i.src} slot={slot(i)} aspect="aspect-[1440/1024]" />
+          ))}
         </div>
       )}
     </section>

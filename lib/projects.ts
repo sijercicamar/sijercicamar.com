@@ -22,8 +22,8 @@ export type Project = {
   adminDashboard?: {
     summary: string
     points?: string[]
-    /** Optional screenshot, shown once the file exists in /public. */
-    image?: string
+    /** Screenshots (1440×1024), each shown once its file exists in /public. */
+    images?: { src: string; caption?: string }[]
   }
 }
 
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       points: [
         "Parent statistics: daily active sessions, task completion and progress over time",
       ],
-      image: "/work/matekvar/admin-dashboard.png",
+      images: [{ src: "/work/matekvar/admin-dashboard.png" }],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -115,13 +115,27 @@ export const projects: Project[] = [
     tags: ["Product Design", "Mobile App", "SaaS", "Figma"],
     adminDashboard: {
       summary:
-        "A comprehensive admin layer ties the whole platform together, so the team can run comedians, promoters, events and payouts from one place.",
+        "A full admin panel ties the platform together. The team follows earnings, ticket sales and spots, manages comedians and promoters, and controls what each co-promoter can see.",
       points: [
-        "Comedians, promoters and events managed in one admin layer",
-        "Oversight of ticket sales and comedian payouts",
-        "Designed in the same Figma system as the rest of the product",
+        "Overview dashboard: users, spot counts, app earnings and the top-earning shows, comedians and promoters",
+        "Earnings by year and week, split into promoter and comedian earnings",
+        "Ticket sales by show, city and region",
+        "Spot management with tiers (Platinum, Gold, Silver, Bronze) and booking status",
+        "Comedian and promoter lists with lifetime and monthly shows and earnings",
+        "Activity log, co-promoter permissions and in-app notifications",
       ],
-      image: "/work/standup-republic/admin-dashboard.png",
+      images: [
+        { src: "/work/standup-republic/admin-dashboard.webp", caption: "Dashboard" },
+        { src: "/work/standup-republic/admin-earnings.webp", caption: "Earnings" },
+        { src: "/work/standup-republic/admin-tickets.webp", caption: "Tickets" },
+        { src: "/work/standup-republic/admin-spots.webp", caption: "Spots" },
+        { src: "/work/standup-republic/admin-comedians.webp", caption: "Comedians" },
+        { src: "/work/standup-republic/admin-promoters.webp", caption: "Promoters" },
+        { src: "/work/standup-republic/admin-activity.webp", caption: "Activity log" },
+        { src: "/work/standup-republic/admin-settings.webp", caption: "Co-promoter permissions" },
+        { src: "/work/standup-republic/admin-notifications.webp", caption: "Notifications" },
+        { src: "/work/standup-republic/admin-dashboard-collapsed.webp", caption: "Dashboard with collapsed navigation" },
+      ],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -157,7 +171,7 @@ export const projects: Project[] = [
         "Projects and outputs organised by campaign, output type and product",
         "Real-time preview next to the generation inputs",
       ],
-      image: "/work/persuava/admin-dashboard.png",
+      images: [{ src: "/work/persuava/admin-dashboard.png" }],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -274,7 +288,7 @@ export const projects: Project[] = [
         "Partner portal: branded card design, redemption tracking and reporting in one dashboard",
         "Admin panel: automated billing, partner onboarding and system-wide oversight",
       ],
-      image: "/work/ajandekbar/admin-dashboard.png",
+      images: [{ src: "/work/ajandekbar/admin-dashboard.png" }],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -490,7 +504,7 @@ export const projects: Project[] = [
     tags: ["Product Design", "UX Research", "Figma", "Mobile"],
     adminDashboard: {
       summary: "I also designed Zicer's admin dashboard, used by the team to manage the platform behind the app.",
-      image: "/work/zicer-ba/admin-dashboard.png",
+      images: [{ src: "/work/zicer-ba/admin-dashboard.png" }],
     },
     role: "UX/UI Designer",
     overview:
