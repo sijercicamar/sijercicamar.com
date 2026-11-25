@@ -10,6 +10,7 @@ import {
   otherProjects,
 } from "@/lib/projects"
 import type { Project } from "@/lib/projects"
+import AdminLabel from "@/components/AdminLabel"
 
 const FILTERS = [
   "All",
@@ -66,10 +67,11 @@ function FeaturedCard({ project, imageAspect = "aspect-[16/10]", className = "" 
         <div className="absolute inset-0 bg-bg/0 group-hover:bg-bg/8 transition-colors duration-300" />
       </div>
       <div className="p-6 flex flex-col gap-3">
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <span className={`text-[11px] font-medium tracking-[0.14em] uppercase px-2.5 py-1 border rounded-full ${categoryPill[project.category] ?? "text-muted border-edge bg-surface"}`}>
             {project.category}
           </span>
+          {project.adminDashboard && <AdminLabel />}
           <span className="text-xs text-muted">{project.year}</span>
         </div>
         <div>
@@ -147,8 +149,11 @@ function ProjectCard({ project }: { project: Project }) {
 
       <div className="p-5 border-t border-edge">
         <div className="flex items-center justify-between mb-3">
-          <span className={`text-xs font-medium uppercase tracking-[0.12em] ${categoryColor[project.category] ?? "text-muted"}`}>
-            {project.category}
+          <span className="flex flex-wrap items-center gap-2">
+            <span className={`text-xs font-medium uppercase tracking-[0.12em] ${categoryColor[project.category] ?? "text-muted"}`}>
+              {project.category}
+            </span>
+            {project.adminDashboard && <AdminLabel size="sm" />}
           </span>
           <span className="text-xs text-muted">{project.year}</span>
         </div>
@@ -231,7 +236,7 @@ export default function WorkGrid() {
 
       {showTiers ? (
         <>
-          <div className="grid sm:grid-cols-2 gap-4 mb-4">
+          <div className={`grid sm:grid-cols-2 gap-4 mb-4 ${featuredProjects.length === 3 ? "lg:grid-cols-3" : ""}`}>
             {featuredProjects.map((p) => (
               <FeaturedCard key={p.slug} project={p} />
             ))}

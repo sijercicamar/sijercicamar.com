@@ -16,7 +16,7 @@ Things nobody could confirm were **removed instead of guessed**:
 - Persuava: total engagement length, "What I'd do next"
 - StandUp Republic: Discovery and Wireframes process steps, "What I'd do next"
 
-**Written by Claude, please read before sharing** (`lib/case-studies.ts`, Dashboards & Design System): the approach text (Discovery → Handoff steps, Tables, Filters & search, Bulk actions, Empty/loading/error states, Roles & permissions, Component library). It describes a general way of working, not specific results. Rewrite anything that doesn't sound like you. The page is now **published** (no longer `draft: true`).
+**Admin dashboards**: the separate Dashboards & Design System case study was removed. Instead, StandUp Republic, Persuava, Ajándékbár, MatekVÁR and Zicer have an "Admin Dashboard" label and an "Admin dashboard" section, written from each project's existing description. Zicer's is a single sentence, since there was no admin detail to draw on; add more if you like (`adminDashboard` in `lib/projects.ts`).
 
 **About → AI in my workflow**: kept as "research synthesis, copy exploration and fast prototyping" (from your earlier About copy). The TODO note was removed.
 
@@ -45,17 +45,12 @@ All paths are in `/public`. Recommended ratio 16:10 (they are cropped from the t
 - `/public/work/standup-republic/ticket-purchase-qr.png`: ticket purchase and QR entry (mobile)
 - `/public/work/standup-republic/native-apps.png`: native app screens
 
-**Dashboards & Design System** (Standup Republic and Persuava examples reuse their existing cover images)
-- `/public/work/dashboards-design-system/component-overview.png`
-- `/public/work/dashboards-design-system/token-sheet.png`
-- `/public/work/dashboards-design-system/table-states.png`
-- `/public/work/dashboards-design-system/ajandekbar-admin.png`
-- `/public/work/dashboards-design-system/matekvar-admin.png`
-- `/public/work/dashboards-design-system/zicer-admin.png`
-- `/public/work/dashboards-design-system/dashboard-example-1.png` (NDA, blurred)
-- `/public/work/dashboards-design-system/dashboard-example-2.png` (NDA, blurred)
-
-Also recommended: a `coverImage` for Dashboards & Design System (`lib/projects.ts`). Until then its featured card shows the title as text.
+**Admin dashboard screenshots** (one per project, shown in its "Admin dashboard" section)
+- `/public/work/standup-republic/admin-dashboard.png`
+- `/public/work/persuava/admin-dashboard.png`
+- `/public/work/ajandekbar/admin-dashboard.png`
+- `/public/work/matekvar/admin-dashboard.png`
+- `/public/work/zicer-ba/admin-dashboard.png`
 
 ## 3. Existing claims flagged (not changed, please decide)
 
@@ -80,7 +75,7 @@ Also recommended: a `coverImage` for Dashboards & Design System (`lib/projects.t
 
 ## 4. Hidden or moved
 
-- **Featured** is now Persuava → StandUp Republic → Eldelia → Dashboards & Design System (all four live).
+- **Featured** is now Persuava → StandUp Republic → Eldelia (3 columns on desktop).
 - **Evionor** and **Ajándékbár** moved from Featured to "Product work".
 - "More work" is split into **Product work** (12 projects, cards) and **Other work** (9 web projects: collapsed list on the homepage, small text cards on `/work`). Nothing was deleted.
 - **Previous / Next** on case studies now follows this order (featured → product → other). Checked on Persuava: Back → All Work, Next → Standup Republic.
@@ -92,5 +87,5 @@ Also recommended: a `coverImage` for Dashboards & Design System (`lib/projects.t
 ## 5. Verified
 
 - `next build` passes; typecheck passes; lint is clean on changed files (one older lint error in `components/Nav.tsx` is unchanged from `main`).
-- Production build: no `{{TODO}}` text or empty image slots in the HTML of `/`, `/work/persuava`, `/work/standup-republic`, `/work/dashboards-design-system`.
+- Production build: no `{{TODO}}` text or empty image slots in the HTML of `/`, `/work/persuava`, `/work/standup-republic`.
 - Checked at 1440×900 and 375×812: home (hero, work tiers, About, Contact), Persuava, StandUp Republic, Dashboards (draft view). No horizontal scroll on mobile.

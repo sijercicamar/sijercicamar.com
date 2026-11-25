@@ -5,6 +5,8 @@ import { notFound } from "next/navigation"
 import { getProjectBySlug, getAdjacentProjects, visibleProjects } from "@/lib/projects"
 import { getCaseStudy } from "@/lib/case-studies"
 import CaseStudyTemplate from "@/components/CaseStudy"
+import AdminDashboardSection from "@/components/AdminDashboardSection"
+import AdminLabel from "@/components/AdminLabel"
 import { stripTodo } from "@/lib/draft"
 import { SITE } from "@/lib/site"
 
@@ -162,12 +164,13 @@ export default async function CaseStudyPage({ params }: Props) {
       <>
       {/* ── Header ── */}
       <header className="max-w-6xl mx-auto px-6 pt-12 pb-16">
-        <div className="mb-6">
+        <div className="mb-6 flex flex-wrap items-center gap-2">
           <span
             className={`inline-block text-xs font-medium tracking-[0.15em] uppercase px-3 py-1 border rounded-full ${tagClass}`}
           >
             {project.category}
           </span>
+          {project.adminDashboard && <AdminLabel />}
         </div>
         <h1 className="text-[clamp(2.5rem,7vw,6rem)] font-semibold leading-[0.95] tracking-tight text-fg mb-6">
           {project.title}
@@ -270,6 +273,8 @@ export default async function CaseStudyPage({ params }: Props) {
           ))}
         </ul>
       </section>
+
+      <AdminDashboardSection project={project} />
 
       {/* ── Key Metrics ── */}
       {project.metrics && project.metrics.length > 0 && (
