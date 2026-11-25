@@ -9,13 +9,21 @@ export function imageExists(src: string) {
 }
 
 /** Shows the image once Amar adds the file; until then a labelled slot (drafts only). */
-export function ImageSlot({ slot, priority = false }: { slot: Slot; priority?: boolean }) {
+export function ImageSlot({
+  slot,
+  priority = false,
+  aspect = "aspect-[16/10]",
+}: {
+  slot: Slot
+  priority?: boolean
+  aspect?: string
+}) {
   const exists = imageExists(slot.src)
   if (!exists && !SHOW_DRAFTS) return null
   return (
     <figure>
       {exists ? (
-        <div className="relative w-full aspect-[16/10] rounded-xl overflow-hidden border border-edge bg-surface">
+        <div className={`relative w-full ${aspect} rounded-xl overflow-hidden border border-edge bg-surface`}>
           <Image
             src={slot.src}
             alt={slot.alt}
@@ -26,7 +34,7 @@ export function ImageSlot({ slot, priority = false }: { slot: Slot; priority?: b
           />
         </div>
       ) : (
-        <div className="w-full aspect-[16/10] rounded-xl border border-dashed border-yellow-400/40 bg-yellow-400/[0.03] flex flex-col items-center justify-center gap-2 p-6 text-center">
+        <div className={`w-full ${aspect} rounded-xl border border-dashed border-yellow-400/40 bg-yellow-400/[0.03] flex flex-col items-center justify-center gap-2 p-6 text-center`}>
           <p className="text-xs font-medium uppercase tracking-[0.15em] text-yellow-300">Image slot</p>
           <p className="text-sm text-fg/70">{slot.alt}</p>
           <p className="text-xs font-mono text-muted break-all">/public{slot.src}</p>

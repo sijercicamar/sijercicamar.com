@@ -22,8 +22,8 @@ export type Project = {
   adminDashboard?: {
     summary: string
     points?: string[]
-    /** Optional screenshot, shown once the file exists in /public. */
-    image?: string
+    /** Screenshots (1440×1024), each shown once its file exists in /public. */
+    images?: { src: string; caption?: string; width?: number; height?: number }[]
   }
 }
 
@@ -71,7 +71,7 @@ export const projects: Project[] = [
       points: [
         "Parent statistics: daily active sessions, task completion and progress over time",
       ],
-      image: "/work/matekvar/admin-dashboard.png",
+      images: [{ src: "/work/matekvar/admin-dashboard.png" }],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -115,13 +115,27 @@ export const projects: Project[] = [
     tags: ["Product Design", "Mobile App", "SaaS", "Figma"],
     adminDashboard: {
       summary:
-        "A comprehensive admin layer ties the whole platform together, so the team can run comedians, promoters, events and payouts from one place.",
+        "A full admin panel ties the platform together. The team follows earnings, ticket sales and spots, manages comedians and promoters, and controls what each co-promoter can see.",
       points: [
-        "Comedians, promoters and events managed in one admin layer",
-        "Oversight of ticket sales and comedian payouts",
-        "Designed in the same Figma system as the rest of the product",
+        "Overview dashboard: users, spot counts, app earnings and the top-earning shows, comedians and promoters",
+        "Earnings by year and week, split into promoter and comedian earnings",
+        "Ticket sales by show, city and region",
+        "Spot management with tiers (Platinum, Gold, Silver, Bronze) and booking status",
+        "Comedian and promoter lists with lifetime and monthly shows and earnings",
+        "Activity log, co-promoter permissions and in-app notifications",
       ],
-      image: "/work/standup-republic/admin-dashboard.png",
+      images: [
+        { src: "/work/standup-republic/admin-dashboard.webp", caption: "Dashboard" },
+        { src: "/work/standup-republic/admin-earnings.webp", caption: "Earnings" },
+        { src: "/work/standup-republic/admin-tickets.webp", caption: "Tickets" },
+        { src: "/work/standup-republic/admin-spots.webp", caption: "Spots" },
+        { src: "/work/standup-republic/admin-comedians.webp", caption: "Comedians" },
+        { src: "/work/standup-republic/admin-promoters.webp", caption: "Promoters" },
+        { src: "/work/standup-republic/admin-activity.webp", caption: "Activity log" },
+        { src: "/work/standup-republic/admin-settings.webp", caption: "Co-promoter permissions" },
+        { src: "/work/standup-republic/admin-notifications.webp", caption: "Notifications" },
+        { src: "/work/standup-republic/admin-dashboard-collapsed.webp", caption: "Dashboard with collapsed navigation" },
+      ],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -157,7 +171,7 @@ export const projects: Project[] = [
         "Projects and outputs organised by campaign, output type and product",
         "Real-time preview next to the generation inputs",
       ],
-      image: "/work/persuava/admin-dashboard.png",
+      images: [{ src: "/work/persuava/admin-dashboard.png" }],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -201,6 +215,24 @@ export const projects: Project[] = [
     coverImage: "/projects/mycareer-shop.webp",
     liveUrl: "https://mycareershop.com/",
     tags: ["SaaS", "Marketplace", "Landing Pages", "Conversion Design", "UX Research", "Figma"],
+    adminDashboard: {
+      summary:
+        "I designed the admin panel the team uses to run the marketplace: users, bookings and payments, disputes and refunds, and the quality of every advisor.",
+      points: [
+        "Dashboard with advisors, advisees and open disputes, plus user management and recent bookings and payments",
+        "Dispute handling: review a claim with its booking details, then accept it (with a Stripe refund where needed) or reject it with a reason",
+        "Advisor list with verification, bookability, ratings, cancellations, no-shows and a commission setting",
+        "Advisor profile with Stripe, LinkedIn and calendar connection status, services, reviews and an activity log",
+      ],
+      images: [
+        { src: "/work/mycareer-shop/admin-advisors.webp", caption: "Advisors", width: 1440, height: 1024 },
+        { src: "/work/mycareer-shop/admin-dashboard.webp", caption: "Dashboard", width: 1440, height: 1870 },
+        { src: "/work/mycareer-shop/admin-advisor-profile.webp", caption: "Advisor profile", width: 1440, height: 2346 },
+        { src: "/work/mycareer-shop/admin-disputes.webp", caption: "Disputes", width: 1440, height: 1024 },
+        { src: "/work/mycareer-shop/admin-claim-accept.webp", caption: "Accepting a claim", width: 1440, height: 1024 },
+        { src: "/work/mycareer-shop/admin-claim-reject.webp", caption: "Rejecting a claim", width: 1440, height: 1024 },
+      ],
+    },
     role: "Lead UX/UI Designer",
     overview:
       "My Career Shop is a career guidance platform for Canada and the US that combines two things most platforms treat as separate: a counselor booking marketplace and a 1,000+ page career knowledge hub. The product had to convert visitors into paid bookings while simultaneously generating the kind of organic search traffic that makes paid acquisition unnecessary. Both goals lived or died on design decisions.",
@@ -269,12 +301,22 @@ export const projects: Project[] = [
     tags: ["E-commerce", "SaaS", "Conversion Design", "Figma", "Portal Design", "Hungary"],
     adminDashboard: {
       summary:
-        "Two dashboard layers sit behind the consumer store: a partner portal for businesses and an admin panel for the platform team.",
+        "Behind the consumer store sits the admin panel the Ajándékbár team uses to run the platform: offers, partners, and every customer and partner transaction.",
       points: [
-        "Partner portal: branded card design, redemption tracking and reporting in one dashboard",
-        "Admin panel: automated billing, partner onboarding and system-wide oversight",
+        "Offers with variants, sell-through, expiry dates and featured placement, plus a detailed offer editor (commission, redemption dates, audience)",
+        "Partners with active offers, codes sold, revenue and commission",
+        "Customer transactions (B2B and B2C orders and extensions) with payment status, refunds and a detail view",
+        "Partner transactions: settlements and platform usage fees, tracked as revenue or expense",
+        "Partner portal: branded card design, redemption tracking and reporting",
       ],
-      image: "/work/ajandekbar/admin-dashboard.png",
+      images: [
+        { src: "/work/ajandekbar/admin-offers.webp", caption: "Offers", width: 1440, height: 1024 },
+        { src: "/work/ajandekbar/admin-new-offer.webp", caption: "Creating an offer", width: 1440, height: 1024 },
+        { src: "/work/ajandekbar/admin-partners.webp", caption: "Partners", width: 1440, height: 1024 },
+        { src: "/work/ajandekbar/admin-customer-transactions.webp", caption: "Customer transactions", width: 1440, height: 1024 },
+        { src: "/work/ajandekbar/admin-transaction-detail.webp", caption: "Transaction detail", width: 1440, height: 1024 },
+        { src: "/work/ajandekbar/admin-partner-transactions.webp", caption: "Partner transactions", width: 1440, height: 1024 },
+      ],
     },
     role: "Lead UX/UI Designer",
     overview:
@@ -490,7 +532,7 @@ export const projects: Project[] = [
     tags: ["Product Design", "UX Research", "Figma", "Mobile"],
     adminDashboard: {
       summary: "I also designed Zicer's admin dashboard, used by the team to manage the platform behind the app.",
-      image: "/work/zicer-ba/admin-dashboard.png",
+      images: [{ src: "/work/zicer-ba/admin-dashboard.png" }],
     },
     role: "UX/UI Designer",
     overview:
@@ -519,6 +561,24 @@ export const projects: Project[] = [
     liveUrl: "https://www.flappingo.com/home/hosts",
     logoUrl: "https://logo.clearbit.com/flappingo.com",
     tags: ["Web App", "Mobile", "Community Platform", "Travel", "UX Design", "Figma"],
+    adminDashboard: {
+      summary:
+        "I designed the admin panel the team uses to keep the community safe and running: users and their roles, reports, references between members, and admin access.",
+      points: [
+        "Dashboard with registered users, trips, accommodations, messages, hosts and travellers at a glance",
+        "Users filtered by role (host, traveller, house swap, adventures, events) or incomplete profiles",
+        "Reports from members with proof attachments and an accepted, rejected or in-review status",
+        "References between members with ratings, reported and deleted flags",
+        "Admin accounts, admin logs and analytics",
+      ],
+      images: [
+        { src: "/work/flappingo/admin-dashboard.webp", caption: "Dashboard", width: 1440, height: 1215 },
+        { src: "/work/flappingo/admin-users.webp", caption: "Users with role filters", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-reports.webp", caption: "Reports", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-references.webp", caption: "References", width: 1440, height: 1024 },
+        { src: "/work/flappingo/admin-admins.webp", caption: "Admins", width: 1440, height: 1024 },
+      ],
+    },
     role: "UX/UI Designer",
     overview:
       "FlappinGo is a home exchange and hospitality-sharing platform connecting travellers with hosts across Europe. The product spans a responsive web app and a native mobile experience, built around the idea that meaningful travel doesn't have to be expensive — it requires trust, transparency, and a design system that makes hosts and guests feel equally comfortable. The platform supports listings, traveller profiles, exchange coordination, local meetups, and community events.",

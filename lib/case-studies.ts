@@ -163,9 +163,6 @@ export const caseStudies: Record<string, CaseStudy> = {
         step: "UI",
         detail:
           "Dedicated interfaces for each role from a single Figma system, tied together by a comprehensive admin layer.",
-        images: [
-          { src: "/work/standup-republic/admin.png", alt: "Admin layer", caption: "Admin layer" },
-        ],
       },
       {
         step: "Handoff",
