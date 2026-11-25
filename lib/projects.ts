@@ -18,6 +18,13 @@ export type Project = {
   metrics?: { label: string; value: string }[]
   /** Hidden on the production site until the content is ready. */
   draft?: boolean
+  /** Admin dashboard designed as part of this project (adds a label and a section). */
+  adminDashboard?: {
+    summary: string
+    points?: string[]
+    /** Optional screenshot, shown once the file exists in /public. */
+    image?: string
+  }
 }
 
 export const projects: Project[] = [
@@ -58,6 +65,14 @@ export const projects: Project[] = [
     liveUrl: "",
     coverImage: "/projects/matekvar.webp",
     tags: ["EdTech", "Mobile App", "SaaS", "Product Design", "Gamification", "Figma", "Hungary"],
+    adminDashboard: {
+      summary:
+        "Behind the learning app I designed the admin dashboard for running the platform, plus a parent-facing statistics view.",
+      points: [
+        "Parent statistics: daily active sessions, task completion and progress over time",
+      ],
+      image: "/work/matekvar/admin-dashboard.png",
+    },
     role: "Lead UX/UI Designer",
     overview:
       "MatekVÁR is a Hungarian educational platform that helps children master mathematics through scientifically-grounded, game-inspired practice — faster sessions, more engagement, better retention. The platform runs on both web and mobile, serving parents, students, and teachers with a single unified product experience. By launch it had already accumulated 528 active users, 52,620+ solved tasks, and strong daily engagement across practice and exam modes.",
@@ -98,6 +113,16 @@ export const projects: Project[] = [
     logoUrl: "https://logo.clearbit.com/standup-republic.com",
     coverImage: "/projects/standup-republic.webp",
     tags: ["Product Design", "Mobile App", "SaaS", "Figma"],
+    adminDashboard: {
+      summary:
+        "A comprehensive admin layer ties the whole platform together, so the team can run comedians, promoters, events and payouts from one place.",
+      points: [
+        "Comedians, promoters and events managed in one admin layer",
+        "Oversight of ticket sales and comedian payouts",
+        "Designed in the same Figma system as the rest of the product",
+      ],
+      image: "/work/standup-republic/admin-dashboard.png",
+    },
     role: "Lead UX/UI Designer",
     overview:
       "Standup Republic is a full-stack digital platform that transformed how stand-up comedy events are organized in Germany — connecting promoters, comedians, and audiences in a single, unified ecosystem. Previously, the scene ran on spreadsheets, cash payouts, and manual check-ins. This platform replaced all of that.",
@@ -125,6 +150,15 @@ export const projects: Project[] = [
     logoUrl: "https://logo.clearbit.com/persuva.ai",
     coverImage: "/projects/persuava.webp",
     tags: ["SaaS", "AI", "E-commerce", "CRO", "Email Design", "Landing Pages", "Figma", "Webflow"],
+    adminDashboard: {
+      summary:
+        "The workspace is the dashboard marketers work in every day: a clean, Notion-inspired layout that organises projects and AI outputs by campaign, output type and product.",
+      points: [
+        "Projects and outputs organised by campaign, output type and product",
+        "Real-time preview next to the generation inputs",
+      ],
+      image: "/work/persuava/admin-dashboard.png",
+    },
     role: "Lead UX/UI Designer",
     overview:
       "Persuava (formerly Copywise) is an AI-powered content generation platform purpose-built for e-commerce marketers — helping them produce high-converting product pages, email campaigns, ad copy, landing pages, and advertorials at scale. With 700+ early adopters on a no-code foundation, the product had strong traction but a UX that was actively working against it. I led the full redesign: simplifying the core workflow, expanding the feature set to cover the entire e-commerce content lifecycle, and preparing the product for a VC fundraise.",
@@ -233,6 +267,15 @@ export const projects: Project[] = [
     liveUrl: "",
     coverImage: "/projects/ajandekbar.webp",
     tags: ["E-commerce", "SaaS", "Conversion Design", "Figma", "Portal Design", "Hungary"],
+    adminDashboard: {
+      summary:
+        "Two dashboard layers sit behind the consumer store: a partner portal for businesses and an admin panel for the platform team.",
+      points: [
+        "Partner portal: branded card design, redemption tracking and reporting in one dashboard",
+        "Admin panel: automated billing, partner onboarding and system-wide oversight",
+      ],
+      image: "/work/ajandekbar/admin-dashboard.png",
+    },
     role: "Lead UX/UI Designer",
     overview:
       "Ajándékbár is a Hungarian gift card platform that serves three completely different user types within one product: consumers buying and sending gift cards, partner businesses managing their own branded gift card programs, and platform administrators overseeing billing and the entire ecosystem. Each tier needed its own purpose-built interface, while the underlying system had to be unified, automated, and scalable — eliminating the manual overhead that typically makes B2B gifting platforms painful to run.",
@@ -445,6 +488,10 @@ export const projects: Project[] = [
     coverImage: "/projects/zicer-ba.webp",
     liveUrl: "",
     tags: ["Product Design", "UX Research", "Figma", "Mobile"],
+    adminDashboard: {
+      summary: "I also designed Zicer's admin dashboard, used by the team to manage the platform behind the app.",
+      image: "/work/zicer-ba/admin-dashboard.png",
+    },
     role: "UX/UI Designer",
     overview:
       "Zicer is a digital product serving Bosnian users — an app where the existing interface had grown organically without a coherent UX strategy, resulting in unclear flows, inconsistent patterns, and a visual language that lacked confidence.",
@@ -746,22 +793,6 @@ export const projects: Project[] = [
       "Consistent templates that make institutional content easy to maintain",
     ],
   },
-
-  {
-    slug: "dashboards-design-system",
-    title: "Dashboards & Design System",
-    tagline: "How I design data-dense admin UIs, and the component systems behind them",
-    category: "UX/UI Design",
-    year: "Ongoing",
-    liveUrl: "",
-    tags: ["Design Systems", "Dashboards", "SaaS", "Admin UI", "Figma"],
-    role: "Senior Product Designer",
-    overview: "How I design data-dense admin UIs and the component libraries they are built from.",
-    challenge: "",
-    solution: "",
-    outcome: "",
-    highlights: [],
-  },
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
@@ -774,7 +805,6 @@ export const FEATURED_SLUGS = [
   "persuava",
   "standup-republic",
   "eldelia",
-  "dashboards-design-system",
 ]
 export const PRODUCT_SLUGS = [
   "matekvar",
