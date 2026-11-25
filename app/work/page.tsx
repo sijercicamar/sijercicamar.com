@@ -6,12 +6,12 @@ import { SITE } from "@/lib/site"
 export const metadata: Metadata = {
   title: "Work",
   description:
-    "Selected UX/UI design, CRO, Webflow, and WordPress projects by Amar Sijercic — across startups, SaaS platforms, and e-commerce.",
+    "Selected product design case studies by Amar Sijercic: SaaS, AI products, dashboards and design systems, plus web and e-commerce work.",
   alternates: { canonical: "/work" },
   openGraph: {
     title: "Work — Amar Sijercic",
     description:
-      "Selected UX/UI design, CRO, Webflow, and WordPress projects by Amar Sijercic.",
+      "Product design case studies by Amar Sijercic: SaaS, AI products, dashboards and design systems.",
     url: `${SITE.url}/work`,
     type: "website",
   },
@@ -29,8 +29,8 @@ export default function WorkPage() {
           Selected<br />Work
         </h1>
         <p className="text-lg text-muted max-w-xl leading-relaxed">
-          Product design, Webflow builds, and WordPress — across startups,
-          SaaS platforms, editorial products, and service businesses.
+          Product design case studies across SaaS, AI and mobile, followed by
+          more product work and websites for businesses and organisations.
         </p>
       </div>
       <WorkGrid />

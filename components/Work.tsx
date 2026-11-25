@@ -1,16 +1,12 @@
-"use client"
-
 import Link from "next/link"
 import Image from "next/image"
-import { projects } from "@/lib/projects"
+import {
+  featuredProjects,
+  productProjects,
+  otherProjects,
+  visibleProjects,
+} from "@/lib/projects"
 import type { Project } from "@/lib/projects"
-
-// Ranked by recruiter target (CRO · A/B Testing · Email Design · Shopify · AI):
-// 1. persuava  — CRO + Email Design + AI
-// 2. eldelia   — CRO + A/B Testing
-// 3. evionor   — Shopify + CRO
-// 4. ajandekbar — E-commerce + Conversion Design
-const FEATURED_SLUGS = ["persuava", "eldelia", "evionor", "ajandekbar"]
 
 const categoryPill: Record<string, string> = {
   "UX/UI Design":           "text-accent border-accent/25 bg-accent/5",
@@ -130,14 +126,35 @@ function SmallCard({ project }: { project: Project }) {
   )
 }
 
+function Divider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 mt-16 mb-8">
+      <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted shrink-0">{label}</p>
+      <div className="flex-1 border-t border-edge" />
+    </div>
+  )
+}
+
+// ── Compact row (other work) ───────────────────────────────────────────────
+function CompactItem({ project }: { project: Project }) {
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="group flex items-baseline justify-between gap-4 py-4 border-b border-edge"
+    >
+      <span className="min-w-0">
+        <span className="text-sm font-medium text-fg group-hover:text-accent transition-colors duration-150">
+          {project.title}
+        </span>
+        <span className="hidden sm:inline text-sm text-muted"> · {project.tagline}</span>
+      </span>
+      <span className="text-xs text-muted shrink-0">{project.category}</span>
+    </Link>
+  )
+}
+
 // ── Section ────────────────────────────────────────────────────────────────
 export default function Work() {
-  const featured = FEATURED_SLUGS
-    .map((s) => projects.find((p) => p.slug === s))
-    .filter(Boolean) as Project[]
-
-  const rest = projects.filter((p) => !FEATURED_SLUGS.includes(p.slug))
-
   return (
     <section id="work" className="py-32 px-6 border-t border-edge">
       <div className="max-w-6xl mx-auto">
@@ -147,7 +164,7 @@ export default function Work() {
           <div>
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-4">Selected Work</p>
             <h2 className="text-[clamp(2rem,5vw,3.5rem)] font-semibold leading-[1] tracking-tight text-fg">
-              {projects.length} projects
+              {visibleProjects.length} projects
             </h2>
           </div>
           <Link
@@ -158,25 +175,41 @@ export default function Work() {
           </Link>
         </div>
 
-        {/* ── featured: 2×2 grid, ranked by recruiter relevance ── */}
+        {/* ── featured case studies ── */}
         <div className="grid sm:grid-cols-2 gap-4 mb-4">
-          {featured.map((p) => (
+          {featuredProjects.map((p) => (
             <FeaturedCard key={p.slug} project={p} />
           ))}
         </div>
 
-        {/* ── divider + "More work" ── */}
-        <div className="flex items-center gap-4 mt-16 mb-8">
-          <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted shrink-0">More work</p>
-          <div className="flex-1 border-t border-edge" />
-        </div>
-
-        {/* ── regular grid ── */}
+        {/* ── product work ── */}
+        <Divider label="Product work" />
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-          {rest.map((project) => (
+          {productProjects.map((project) => (
             <SmallCard key={project.slug} project={project} />
           ))}
         </div>
+
+        {/* ── other work (collapsed) ── */}
+        {otherProjects.length > 0 && (
+          <details className="group/other mt-16">
+            <summary className="flex items-center gap-4 cursor-pointer list-none [&::-webkit-details-marker]:hidden">
+              <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted shrink-0">
+                Other work · {otherProjects.length}
+              </p>
+              <div className="flex-1 border-t border-edge" />
+              <span className="text-xs text-muted group-open/other:rotate-180 transition-transform duration-200" aria-hidden="true">
+                ↓
+              </span>
+            </summary>
+            <p className="text-sm text-muted mt-6 mb-2">Websites and marketing sites for local businesses and organisations.</p>
+            <div className="border-t border-edge">
+              {otherProjects.map((project) => (
+                <CompactItem key={project.slug} project={project} />
+              ))}
+            </div>
+          </details>
+        )}
 
         {/* bottom CTA */}
         <div className="mt-12 text-center">
@@ -184,7 +217,7 @@ export default function Work() {
             href="/work"
             className="inline-flex items-center gap-2 text-sm text-muted hover:text-fg border border-edge hover:border-muted/40 px-6 py-3 rounded-full transition-all duration-200"
           >
-            View all {projects.length} projects →
+            View all {visibleProjects.length} projects →
           </Link>
         </div>
 

@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next"
 import { SITE } from "@/lib/site"
-import { projects } from "@/lib/projects"
+import { orderedProjects } from "@/lib/projects"
 import { getVisiblePosts } from "@/lib/posts"
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -12,7 +12,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${SITE.url}/blog`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
   ]
 
-  const workRoutes: MetadataRoute.Sitemap = projects.map((p) => ({
+  const workRoutes: MetadataRoute.Sitemap = orderedProjects.map((p) => ({
     url: `${SITE.url}/work/${p.slug}`,
     lastModified: now,
     changeFrequency: "monthly",

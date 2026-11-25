@@ -9,7 +9,7 @@ export default function Hero() {
           {/* ── Text column ── */}
           <div className="pb-20 lg:pb-28">
             <p className="text-xs font-medium tracking-[0.2em] uppercase text-accent mb-8">
-              Senior UX/UI Designer
+              Senior Product Designer
             </p>
 
             <h1 className="text-[clamp(3.5rem,11vw,9rem)] font-semibold leading-[0.9] tracking-tight mb-10">
@@ -18,9 +18,8 @@ export default function Hero() {
             </h1>
 
             <p className="text-lg text-muted max-w-lg mb-12 leading-relaxed">
-              I design conversion-focused digital experiences - ecommerce stores,
-              landing pages, email flows, and SaaS dashboards. Strong craft,
-              research-driven, built to perform.
+              SaaS, AI products and design systems. 15+ years designing
+              end-to-end products and leading small design teams.
             </p>
 
             <div className="flex flex-wrap items-center gap-3">
@@ -38,6 +37,11 @@ export default function Hero() {
                 sijercicamar@gmail.com
               </a>
             </div>
+
+            <p className="mt-6 text-sm text-muted flex items-center gap-2">
+              <span className="w-1.5 h-1.5 rounded-full bg-accent shrink-0" aria-hidden="true" />
+              Open to senior and lead product design roles. Remote, full-time or B2B, CET.
+            </p>
           </div>
 
           {/* ── Photo column (hidden on mobile) ── */}

@@ -60,12 +60,12 @@ export default function OpengraphImage() {
               marginTop: 16,
             }}
           >
-            Senior UX/UI &amp; CRO Designer
+            Senior Product Designer
           </div>
         </div>
 
         <div style={{ display: "flex", color: "#a09890", fontSize: 28, maxWidth: 900 }}>
-          High-converting, human-centered design for startups, SaaS &amp; e-commerce.
+          SaaS, AI products &amp; design systems. 15+ years, end to end.
         </div>
       </div>
     ),

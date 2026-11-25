@@ -3,15 +3,13 @@
 import { useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { projects } from "@/lib/projects"
+import {
+  orderedProjects as projects,
+  featuredProjects,
+  productProjects,
+  otherProjects,
+} from "@/lib/projects"
 import type { Project } from "@/lib/projects"
-
-// Ranked by recruiter target (CRO · A/B Testing · Email Design · Shopify · AI):
-// 1. persuava   — CRO + Email Design + AI
-// 2. eldelia    — CRO + A/B Testing
-// 3. evionor    — Shopify + CRO
-// 4. ajandekbar — E-commerce + Conversion Design
-const FEATURED_SLUGS = ["persuava", "eldelia", "evionor", "ajandekbar"]
 
 const FILTERS = [
   "All",
@@ -169,18 +167,42 @@ function ProjectCard({ project }: { project: Project }) {
   )
 }
 
+function Divider({ label }: { label: string }) {
+  return (
+    <div className="flex items-center gap-4 mt-16 mb-8">
+      <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted shrink-0">{label}</p>
+      <div className="flex-1 border-t border-edge" />
+    </div>
+  )
+}
+
+// ── Compact card (other work) ─────────────────────────────────────────────
+function CompactCard({ project }: { project: Project }) {
+  return (
+    <Link
+      href={`/work/${project.slug}`}
+      className="group block bg-surface border border-edge rounded-xl p-5 hover:border-muted/30 transition-all duration-200"
+    >
+      <div className="flex items-center justify-between mb-2">
+        <span className={`text-[10px] font-medium uppercase tracking-[0.12em] ${categoryColor[project.category] ?? "text-muted"}`}>
+          {project.category}
+        </span>
+        <span className="text-[10px] text-muted">{project.year}</span>
+      </div>
+      <h3 className="text-sm font-semibold text-fg mb-1 group-hover:text-accent transition-colors duration-150">
+        {project.title}
+      </h3>
+      <p className="text-xs text-muted line-clamp-2 leading-relaxed">{project.tagline}</p>
+    </Link>
+  )
+}
+
 export default function WorkGrid() {
   const [active, setActive] = useState<Filter>("All")
 
-  const showFeatured = active === "All"
+  const showTiers = active === "All"
 
-  const featured = FEATURED_SLUGS
-    .map((s) => projects.find((p) => p.slug === s))
-    .filter(Boolean) as Project[]
-
-  const filtered = active === "All"
-    ? projects.filter((p) => !FEATURED_SLUGS.includes(p.slug))
-    : projects.filter((p) => p.category === active)
+  const filtered = projects.filter((p) => p.category === active)
 
   return (
     <div className="max-w-6xl mx-auto px-6 pb-32">
@@ -207,31 +229,44 @@ export default function WorkGrid() {
         })}
       </div>
 
-      {/* Featured 4 in 2×2 — only when showing All */}
-      {showFeatured && featured.length > 0 && (
+      {showTiers ? (
         <>
           <div className="grid sm:grid-cols-2 gap-4 mb-4">
-            {featured.map((p) => (
+            {featuredProjects.map((p) => (
               <FeaturedCard key={p.slug} project={p} />
             ))}
           </div>
 
-          <div className="flex items-center gap-4 mt-16 mb-8">
-            <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted shrink-0">More work</p>
-            <div className="flex-1 border-t border-edge" />
+          <Divider label="Product work" />
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {productProjects.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
           </div>
+
+          {otherProjects.length > 0 && (
+            <>
+              <Divider label="Other work" />
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {otherProjects.map((project) => (
+                  <CompactCard key={project.slug} project={project} />
+                ))}
+              </div>
+            </>
+          )}
         </>
-      )}
+      ) : (
+        <>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {filtered.map((project) => (
+              <ProjectCard key={project.slug} project={project} />
+            ))}
+          </div>
 
-      {/* Grid */}
-      <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {filtered.map((project) => (
-          <ProjectCard key={project.slug} project={project} />
-        ))}
-      </div>
-
-      {filtered.length === 0 && (
-        <p className="text-muted text-center py-24">No projects in this category.</p>
+          {filtered.length === 0 && (
+            <p className="text-muted text-center py-24">No projects in this category.</p>
+          )}
+        </>
       )}
     </div>
   )

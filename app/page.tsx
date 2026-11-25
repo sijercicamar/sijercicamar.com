@@ -3,6 +3,7 @@ import Nav from "@/components/Nav";
 import Hero from "@/components/Hero";
 import Work from "@/components/Work";
 import About from "@/components/About";
+import Testimonials from "@/components/Testimonials";
 import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import { SITE } from "@/lib/site";
@@ -39,6 +40,7 @@ export default function Home() {
       <Hero />
       <Work />
       <About />
+      <Testimonials />
       <Footer />
     </main>
   );
