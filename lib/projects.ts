@@ -16,6 +16,8 @@ export type Project = {
   highlights: string[]
   process?: { step: string; detail: string }[]
   metrics?: { label: string; value: string }[]
+  /** Hidden on the production site until the content is ready. */
+  draft?: boolean
 }
 
 export const projects: Project[] = [
@@ -744,27 +746,101 @@ export const projects: Project[] = [
       "Consistent templates that make institutional content easy to maintain",
     ],
   },
+
+  {
+    slug: "dashboards-design-system",
+    title: "Dashboards & Design System",
+    tagline: "How I design data-dense admin UIs, and the component systems behind them",
+    category: "UX/UI Design",
+    year: "Ongoing",
+    liveUrl: "",
+    tags: ["Design Systems", "Dashboards", "SaaS", "Admin UI", "Figma"],
+    role: "Senior Product Designer",
+    overview: "How I design data-dense admin UIs and the component libraries they are built from.",
+    challenge: "",
+    solution: "",
+    outcome: "",
+    highlights: [],
+  },
 ]
 
 export function getProjectBySlug(slug: string): Project | undefined {
-  return projects.find((p) => p.slug === slug)
+  return visibleProjects.find((p) => p.slug === slug)
 }
+
+// ── Ordering ────────────────────────────────────────────────────────────────
+// Featured case studies, then product work, then other (web/marketing) work.
+export const FEATURED_SLUGS = [
+  "persuava",
+  "standup-republic",
+  "eldelia",
+  "dashboards-design-system",
+]
+export const PRODUCT_SLUGS = [
+  "matekvar",
+  "awaypay",
+  "leadspicker",
+  "lucky-punch",
+  "zicer-ba",
+  "mycareer-shop",
+  "tozdemania",
+  "open-forest",
+  "flappingo",
+  "fannizero",
+  "evionor",
+  "ajandekbar",
+]
+export const OTHER_SLUGS = [
+  "berva-sorozo",
+  "mano-klima",
+  "ardes-music",
+  "herbstritt-haustechnik",
+  "verdatherm",
+  "interview-ba",
+  "infohouse-ba",
+  "orela-ba",
+  "irpo-ba",
+]
+
+const SHOW_DRAFTS = Boolean(process.env.SHOW_DRAFTS)
+
+/** Projects the current environment may show (drafts only outside production). */
+export const visibleProjects = projects.filter((p) => SHOW_DRAFTS || !p.draft)
+
+function pick(slugs: string[]): Project[] {
+  return slugs
+    .map((s) => visibleProjects.find((p) => p.slug === s))
+    .filter((p): p is Project => Boolean(p))
+}
+
+export const featuredProjects = pick(FEATURED_SLUGS)
+export const productProjects = pick(PRODUCT_SLUGS)
+// Anything not listed above falls into "Other work" so nothing silently disappears.
+export const otherProjects = [
+  ...pick(OTHER_SLUGS),
+  ...visibleProjects.filter(
+    (p) => ![...FEATURED_SLUGS, ...PRODUCT_SLUGS, ...OTHER_SLUGS].includes(p.slug)
+  ),
+]
+
+/** Display order used for Previous / Next links on case studies. */
+export const orderedProjects = [...featuredProjects, ...productProjects, ...otherProjects]
 
 export function getAdjacentProjects(slug: string): {
   prev: Project | null
   next: Project | null
 } {
-  const index = projects.findIndex((p) => p.slug === slug)
+  const index = orderedProjects.findIndex((p) => p.slug === slug)
   return {
-    prev: index > 0 ? projects[index - 1] : null,
-    next: index < projects.length - 1 ? projects[index + 1] : null,
+    prev: index > 0 ? orderedProjects[index - 1] : null,
+    next: index >= 0 && index < orderedProjects.length - 1 ? orderedProjects[index + 1] : null,
   }
 }
 
 export const projectsByCategory = {
-  "UX/UI Design": projects.filter((p) => p.category === "UX/UI Design"),
-  Webflow: projects.filter((p) => p.category === "Webflow"),
-  "WordPress & Web Design": projects.filter(
+  "UX/UI Design": visibleProjects.filter((p) => p.category === "UX/UI Design"),
+  Webflow: visibleProjects.filter((p) => p.category === "Webflow"),
+  "WordPress & Web Design": visibleProjects.filter(
     (p) => p.category === "WordPress & Web Design"
   ),
 }

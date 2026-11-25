@@ -2,13 +2,16 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import Image from "next/image"
 import { notFound } from "next/navigation"
-import { getProjectBySlug, getAdjacentProjects, projects } from "@/lib/projects"
+import { getProjectBySlug, getAdjacentProjects, visibleProjects } from "@/lib/projects"
+import { getCaseStudy } from "@/lib/case-studies"
+import CaseStudyTemplate from "@/components/CaseStudy"
+import { stripTodo } from "@/lib/draft"
 import { SITE } from "@/lib/site"
 
 type Props = { params: Promise<{ slug: string }> }
 
 export async function generateStaticParams() {
-  return projects.map((p) => ({ slug: p.slug }))
+  return visibleProjects.map((p) => ({ slug: p.slug }))
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -16,13 +19,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const project = getProjectBySlug(slug)
   if (!project) return {}
   const images = project.coverImage ? [project.coverImage] : undefined
+  const study = getCaseStudy(slug)
+  const description = study ? stripTodo(study.summary) || project.tagline : project.tagline
   return {
     title: project.title,
-    description: project.tagline,
+    description,
     alternates: { canonical: `/work/${project.slug}` },
     openGraph: {
       title: project.title,
-      description: project.tagline,
+      description,
       url: `${SITE.url}/work/${project.slug}`,
       type: "article",
       images,
@@ -30,7 +35,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: project.title,
-      description: project.tagline,
+      description,
       images,
     },
   }
@@ -135,6 +140,7 @@ export default async function CaseStudyPage({ params }: Props) {
   if (!project) notFound()
 
   const { prev, next } = getAdjacentProjects(slug)
+  const study = getCaseStudy(slug)
   const tagClass = categoryColor[project.category] ?? "text-muted border-edge bg-surface"
 
   return (
@@ -150,6 +156,10 @@ export default async function CaseStudyPage({ params }: Props) {
         </Link>
       </div>
 
+      {study ? (
+        <CaseStudyTemplate project={project} study={study} />
+      ) : (
+      <>
       {/* ── Header ── */}
       <header className="max-w-6xl mx-auto px-6 pt-12 pb-16">
         <div className="mb-6">
@@ -323,6 +333,9 @@ export default async function CaseStudyPage({ params }: Props) {
               : "Visit live site ↗"}
           </a>
         </div>
+      )}
+
+      </>
       )}
 
       {/* ── Prev / Next ── */}

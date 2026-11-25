@@ -4,11 +4,15 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="mb-16">
           <p className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-6">
-            Let's connect
+            Let&apos;s connect
           </p>
           <h2 className="text-[clamp(2rem,7vw,6rem)] font-semibold leading-[1.05] text-fg max-w-3xl">
-            Have a project in mind?
+            Hiring or have a project?
           </h2>
+          <p className="mt-6 text-base text-muted max-w-xl leading-relaxed">
+            Open to senior/lead product design roles. Remote, full-time or B2B,
+            CET (Sarajevo).
+          </p>
         </div>
 
         <div className="flex flex-wrap gap-3 mb-24">
@@ -25,6 +29,13 @@ export default function Footer() {
             className="inline-flex items-center gap-2 px-6 py-3 border border-edge text-muted text-sm rounded-full hover:text-fg hover:border-muted/40 transition-colors duration-200"
           >
             LinkedIn ↗
+          </a>
+          <a
+            href="/amar-sijercic-cv.pdf"
+            download="Amar Sijercic CV.pdf"
+            className="inline-flex items-center gap-2 px-6 py-3 border border-edge text-muted text-sm rounded-full hover:text-fg hover:border-muted/40 transition-colors duration-200"
+          >
+            Download CV ↓
           </a>
         </div>
 

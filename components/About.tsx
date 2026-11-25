@@ -4,17 +4,19 @@ import path from "path"
 import Link from "next/link"
 
 const expertise = [
-  "Conversion Rate Optimization (CRO)",
-  "E-commerce & Shopify Design",
-  "Email & Landing Page Design",
-  "A/B Testing & Experimentation",
-  "Product Design",
-  "UX Research",
-  "Design Systems",
-  "Visual Design",
+  "Product design",
+  "Design systems",
+  "SaaS & dashboards",
+  "UX research",
+  "AI products",
+  "Mobile",
+  "CRO & e-commerce",
+  "Visual design",
 ]
 
-const tools = ["Figma", "ChatGPT & Claude", "Shopify", "ClickUp & Loom", "Framer & Webflow", "Maze & FigJam"]
+const tools = ["Figma", "Webflow", "Adobe Creative Suite", "HTML, CSS & JS", "WordPress", "Claude & ChatGPT"]
+
+const languages = ["English (fluent)", "German (B2)", "Bosnian / Croatian / Serbian (native)"]
 
 export default function About() {
   const hasPhoto = existsSync(path.join(process.cwd(), "public", "amar.jpg"))
@@ -47,7 +49,8 @@ export default function About() {
 
             <div>
               <p className="text-base font-semibold text-fg">Amar Sijercic</p>
-              <p className="text-sm text-muted mt-0.5">Senior UX/UI Designer</p>
+              <p className="text-sm text-muted mt-0.5">Senior Product Designer</p>
+              <p className="text-xs text-muted/70 mt-1">Sarajevo · CET · Remote</p>
             </div>
 
             <div className="flex flex-col gap-2.5">
@@ -88,24 +91,44 @@ export default function About() {
                 About
               </p>
               <p className="text-xl text-muted leading-relaxed mb-6">
-                I'm a Senior UX/UI Designer specializing in conversion-focused
-                digital experiences — e-commerce stores, landing pages, email
-                flows, and SaaS products.
-              </p>
-              <p className="text-lg text-muted leading-relaxed">
-                My work sits at the intersection of strong visual craft and
-                measurable performance. I design for how users actually behave
-                — mapping drop-off points, reducing friction, and testing
-                assumptions — while keeping the experience genuinely enjoyable.
-                I've worked across Shopify e-commerce, AI-powered marketing
-                platforms, fintech apps, and content-heavy products, often
-                collaborating with performance marketing and CRO teams. I also
-                integrate AI tools (Claude, ChatGPT) into my workflow for
-                faster ideation, copy exploration, and design iteration.
+                I&apos;m a Senior Product Designer with 15+ years of experience
+                across SaaS, AI, fintech and e-commerce products, from first
+                discovery to shipped, maintained systems.
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-8 pt-8 border-t border-edge">
+            <div className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-edge">
+              <div>
+                <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-3">
+                  Leadership
+                </h3>
+                <p className="text-sm text-fg/80 leading-relaxed">
+                  I&apos;ve led design teams of five designers at Plantech
+                  Industries and two at Travlrd LLC.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-3">
+                  How I work
+                </h3>
+                <p className="text-sm text-fg/80 leading-relaxed">
+                  Discovery, flows, prototypes, systems, then handoff, working
+                  closely with developers the whole way.
+                </p>
+              </div>
+              <div>
+                <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-3">
+                  AI in my workflow
+                </h3>
+                <p className="text-sm text-fg/80 leading-relaxed">
+                  I use Claude and ChatGPT every day for research synthesis,
+                  copy exploration and fast prototyping, so more time goes into
+                  the decisions that matter.
+                </p>
+              </div>
+            </div>
+
+            <div className="grid sm:grid-cols-3 gap-8 pt-8 border-t border-edge">
               <div>
                 <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-5">
                   Expertise
@@ -128,6 +151,22 @@ export default function About() {
                 </h3>
                 <ul className="space-y-3">
                   {tools.map((item) => (
+                    <li
+                      key={item}
+                      className="flex items-center gap-2.5 text-sm text-fg/80"
+                    >
+                      <span className="w-1 h-1 rounded-full bg-accent shrink-0" />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-xs font-medium tracking-[0.2em] uppercase text-muted mb-5">
+                  Languages
+                </h3>
+                <ul className="space-y-3">
+                  {languages.map((item) => (
                     <li
                       key={item}
                       className="flex items-center gap-2.5 text-sm text-fg/80"
