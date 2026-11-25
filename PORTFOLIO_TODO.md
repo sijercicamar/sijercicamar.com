@@ -47,10 +47,10 @@ All paths are in `/public`. Recommended ratio 16:10 (they are cropped from the t
 **Admin dashboard screenshots** (one per project, shown in its "Admin dashboard" section)
 - ~~StandUp Republic~~: done, 10 admin screenshots added (`/public/work/standup-republic/admin-*.webp`)
 - `/public/work/persuava/admin-dashboard.png`
-- `/public/work/ajandekbar/admin-dashboard.png`
+- ~~Ajándékbár~~: done, 6 admin screenshots
 - `/public/work/matekvar/admin-dashboard.png`
 - `/public/work/zicer-ba/admin-dashboard.png`
-- My Career Shop (text done, screens pending): `/public/work/mycareer-shop/admin-{dashboard,disputes,claim-accept,claim-reject,advisors,advisor-profile}.webp`; add `width`/`height` in `lib/projects.ts` so tall screens aren't cropped
+- ~~My Career Shop~~: done, 6 admin screenshots
 
 ## 3. Existing claims flagged (not changed, please decide)
 
