@@ -2,40 +2,23 @@
 
 Branch: `portfolio-repositioning`
 
-## How drafts work
+## How drafts work (still in place for future edits)
 
 - Any text containing `{{TODO: …}}` and any image slot whose file is missing is **shown locally and on Vercel preview deploys** (yellow, dashed), and **hidden on the production site**. You can merge before everything is filled in and nothing half-finished will be visible.
 - Projects with `draft: true` in `lib/projects.ts` are excluded from production entirely (lists, sitemap, Next/Previous, the page itself returns 404).
 - To fill in content, edit `lib/case-studies.ts` (case study text) and drop images into `/public/work/...` at the paths below. An image appears on the live site as soon as its file exists.
 
-## 1. `{{TODO}}` placeholders
+## 1. Text: filled in, please review
 
-### `/work/persuava` (`lib/case-studies.ts`)
-- Header **Team**: who you worked with (founders, developers, PM) and team size
-- Header **Timeline**: total engagement length (after "MVP in 5 weeks")
-- **My role**: who you collaborated with and how handoff worked
-- **Process: Handoff**: how designs were handed off to the developers
-- **What I'd do next**: 2–3 short learnings
+There are no `{{TODO}}` placeholders left. Text was filled from Amar's answers (sole designer on Persuava with the founder and devs; sole designer on StandUp Republic with a PM and Travlrd devs; handoff via Figma Dev Mode specs, component library, Loom walkthroughs and design reviews; admin dashboards for StandUp Republic, Persuava, Ajándékbár, MatekVÁR and Zicer, plus NDA work).
 
-### `/work/standup-republic` (`lib/case-studies.ts`)
-- Header **Team**: team size and who you worked with day to day (after "Built by the Travlrd LLC development team")
-- **My role**: how you worked with the developers and stakeholders
-- **Process: Discovery**: how you learned how promoters, comedians and venues worked before the platform
-- **Process: Wireframes**: describe the wireframing stage
-- **Process: Handoff**: how designs were handed off to the Travlrd developers
-- **Key decision: Event publishing for promoters**: why it mattered to promoters
-- **Key decision: Native apps**: why native apps were the next step
-- **Outcome**: any other real outcome you can share
-- **What I'd do next**: 2–3 short learnings
+Things nobody could confirm were **removed instead of guessed**:
+- Persuava: total engagement length, "What I'd do next"
+- StandUp Republic: Discovery and Wireframes process steps, "What I'd do next"
 
-### `/work/dashboards-design-system` (new, `draft: true`)
-Everything is a placeholder:
-- `lib/projects.ts`: `year`, `overview`, `challenge`, `solution`, `outcome`
-- `lib/case-studies.ts`: Team, Timeline, Platforms, Overview, Problem, My role, all 5 process steps, the 5 approach topics (Tables, Filters & search, Bulk actions, Empty/loading/error states, Roles & permissions), Component library text, Examples text, Outcome, Learnings
-- When it's ready, remove `draft: true` from the project in `lib/projects.ts` to publish it.
+**Written by Claude, please read before sharing** (`lib/case-studies.ts`, Dashboards & Design System): the approach text (Discovery → Handoff steps, Tables, Filters & search, Bulk actions, Empty/loading/error states, Roles & permissions, Component library). It describes a general way of working, not specific results. Rewrite anything that doesn't sound like you. The page is now **published** (no longer `draft: true`).
 
-### Home → About (`components/About.tsx`)
-- **AI in my workflow**: confirm the exact use cases. The current text says "research synthesis, copy exploration and fast prototyping" (based on your brief and the previous About copy). Delete the TODO note in the file once confirmed.
+**About → AI in my workflow**: kept as "research synthesis, copy exploration and fast prototyping" (from your earlier About copy). The TODO note was removed.
 
 ## 2. Image slots to supply
 
@@ -62,15 +45,17 @@ All paths are in `/public`. Recommended ratio 16:10 (they are cropped from the t
 - `/public/work/standup-republic/ticket-purchase-qr.png`: ticket purchase and QR entry (mobile)
 - `/public/work/standup-republic/native-apps.png`: native app screens
 
-**Dashboards & Design System**
+**Dashboards & Design System** (Standup Republic and Persuava examples reuse their existing cover images)
 - `/public/work/dashboards-design-system/component-overview.png`
 - `/public/work/dashboards-design-system/token-sheet.png`
 - `/public/work/dashboards-design-system/table-states.png`
-- `/public/work/dashboards-design-system/dashboard-example-1.png`
-- `/public/work/dashboards-design-system/dashboard-example-2.png`
-- `/public/work/dashboards-design-system/dashboard-example-3.png`
+- `/public/work/dashboards-design-system/ajandekbar-admin.png`
+- `/public/work/dashboards-design-system/matekvar-admin.png`
+- `/public/work/dashboards-design-system/zicer-admin.png`
+- `/public/work/dashboards-design-system/dashboard-example-1.png` (NDA, blurred)
+- `/public/work/dashboards-design-system/dashboard-example-2.png` (NDA, blurred)
 
-Also optional: a `coverImage` for Dashboards & Design System (`lib/projects.ts`), otherwise its card shows the title as text.
+Also recommended: a `coverImage` for Dashboards & Design System (`lib/projects.ts`). Until then its featured card shows the title as text.
 
 ## 3. Existing claims flagged (not changed, please decide)
 
@@ -95,7 +80,7 @@ Also optional: a `coverImage` for Dashboards & Design System (`lib/projects.ts`)
 
 ## 4. Hidden or moved
 
-- **Featured** is now Persuava → StandUp Republic → Eldelia → Dashboards & Design System. Until Dashboards is published, production shows 3 featured cards.
+- **Featured** is now Persuava → StandUp Republic → Eldelia → Dashboards & Design System (all four live).
 - **Evionor** and **Ajándékbár** moved from Featured to "Product work".
 - "More work" is split into **Product work** (12 projects, cards) and **Other work** (9 web projects: collapsed list on the homepage, small text cards on `/work`). Nothing was deleted.
 - **Previous / Next** on case studies now follows this order (featured → product → other). Checked on Persuava: Back → All Work, Next → Standup Republic.
@@ -107,5 +92,5 @@ Also optional: a `coverImage` for Dashboards & Design System (`lib/projects.ts`)
 ## 5. Verified
 
 - `next build` passes; typecheck passes; lint is clean on changed files (one older lint error in `components/Nav.tsx` is unchanged from `main`).
-- Production build: no `{{TODO}}` text or image slots in the HTML of `/`, `/work`, `/work/persuava`, `/work/standup-republic`; `/work/dashboards-design-system` returns 404.
+- Production build: no `{{TODO}}` text or empty image slots in the HTML of `/`, `/work/persuava`, `/work/standup-republic`, `/work/dashboards-design-system`.
 - Checked at 1440×900 and 375×812: home (hero, work tiers, About, Contact), Persuava, StandUp Republic, Dashboards (draft view). No horizontal scroll on mobile.

@@ -28,15 +28,15 @@ export const caseStudies: Record<string, CaseStudy> = {
   persuava: {
     summary:
       "Redesign of an AI content platform for e-commerce marketers: onboarding cut from 36 steps to 5, MVP shipped in 5 weeks, and the product became central to a VC raise.",
-    team: "{{TODO: who you worked with (founders, developers, PM) and team size}}",
-    timeline: "MVP in 5 weeks · {{TODO: total engagement length}}",
+    team: "Sole designer, working directly with the founder and the development team",
+    timeline: "MVP in 5 weeks",
     platforms: "Web app (SaaS), Webflow marketing site",
     overview:
       "Persuava (formerly Copywise) is an AI-powered platform that helps e-commerce marketers produce product pages, email campaigns, ad copy, landing pages and advertorials at scale. With 700+ early adopters the product had traction, but its UX was working against it. I led the full redesign and prepared the product for a VC fundraise.",
     problem:
       "It took 36 separate steps to generate a single piece of content, and most new sign-ups never reached their first output. Marketers who arrived with a real problem often left before they saw the value. At the same time the team needed new output types (email templates, a landing page builder, advertorials) and an AI audience generator, while migrating off a WeWeb/Supabase stack that had hit its ceiling.",
     myRole:
-      "I led the redesign end to end: simplifying the core workflow, expanding the feature set to cover the full e-commerce content lifecycle, and designing the 100+ page Webflow marketing site that supported the fundraise. {{TODO: who you collaborated with and how handoff worked}}",
+      "I led the redesign end to end: simplifying the core workflow, expanding the feature set to cover the full e-commerce content lifecycle, and designing the 100+ page Webflow marketing site that supported the fundraise. As the only designer on the product, I worked directly with the founder and the developers from audit to launch.",
     process: [
       {
         step: "Discovery & audit",
@@ -88,7 +88,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         step: "Handoff",
-        detail: "{{TODO: how designs were handed off to the developers (specs, components, reviews)}}",
+        detail: "Annotated screens and specs in Figma Dev Mode, built on a shared component library, with Loom walkthroughs for the more complex flows and design reviews of the implementation during development.",
       },
     ],
     decisions: [
@@ -133,14 +133,14 @@ export const caseStudies: Record<string, CaseStudy> = {
       ],
       text: "The MVP shipped in five weeks and already covered more than the original platform at launch. Persuava went on to raise venture capital, with the redesigned product central to the pitch.",
     },
-    learnings: ["{{TODO: what you would do next or what you learned (2–3 short points)}}"],
+    learnings: [],
   },
 
   // ── StandUp Republic ────────────────────────────────────────────────────────
   "standup-republic": {
     summary:
       "A three-sided platform for Germany's stand-up comedy scene (comedians, promoters and ticket buyers, plus an admin layer) across web and native apps.",
-    team: "Built by the Travlrd LLC development team · {{TODO: team size and who you worked with day to day}}",
+    team: "Sole designer, working with a PM and the Travlrd LLC development team",
     timeline: "MVP in 4 weeks · native apps 3 weeks later · 18+ months in active development",
     platforms: "Web app, iOS and Android (Capacitor)",
     overview:
@@ -148,12 +148,8 @@ export const caseStudies: Record<string, CaseStudy> = {
     problem:
       "Three very different user types needed to share one product without friction. Comedians wanted to apply for shows and get paid transparently. Promoters needed to publish events and see sales. Ticket buyers wanted a quick purchase and easy entry. Each role needed an experience that felt made for them, while the system underneath stayed coherent and maintainable.",
     myRole:
-      "I designed the whole system: the comedian, promoter, ticket buyer and admin experiences, first for the web MVP and then for the native iOS and Android apps. The Travlrd development team built it. {{TODO: how you worked with the developers and stakeholders}}",
+      "I designed the whole system: the comedian, promoter, ticket buyer and admin experiences, first for the web MVP and then for the native iOS and Android apps. The Travlrd development team built it. As the only designer, I worked day to day with the Travlrd PM and developers.",
     process: [
-      {
-        step: "Discovery",
-        detail: "{{TODO: how you learned how promoters, comedians and venues actually worked before the platform}}",
-      },
       {
         step: "User journeys",
         detail: "Mapped three distinct journeys in Figma (comedian, promoter and ticket buyer) before designing any screens.",
@@ -162,10 +158,6 @@ export const caseStudies: Record<string, CaseStudy> = {
           { src: "/work/standup-republic/journey-promoter.png", alt: "Promoter user journey map", caption: "Promoter journey" },
           { src: "/work/standup-republic/journey-ticket-buyer.png", alt: "Ticket buyer user journey map", caption: "Ticket buyer journey" },
         ],
-      },
-      {
-        step: "Wireframes",
-        detail: "{{TODO: describe the wireframing stage}}",
       },
       {
         step: "UI",
@@ -177,7 +169,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         step: "Handoff",
-        detail: "{{TODO: how designs were handed off to the Travlrd developers}}",
+        detail: "Annotated screens and specs in Figma Dev Mode, built on a shared component library, with Loom walkthroughs for the more complex flows and design reviews of the implementation during development.",
       },
     ],
     decisions: [
@@ -198,7 +190,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Event publishing with real-time sales for promoters",
-        why: "Promoters publish events and follow sales as they happen, with Eventim integration. {{TODO: why this mattered to promoters}}",
+        why: "Promoters publish events and follow sales as they happen, with Eventim integration.",
         images: [
           {
             src: "/work/standup-republic/promoter-sales-analytics.png",
@@ -220,7 +212,7 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         title: "Native apps right after the web MVP",
-        why: "After the web MVP launched, I designed the native iOS and Android apps, built with Capacitor and shipped 3 weeks later. {{TODO: why native apps were the next step}}",
+        why: "After the web MVP launched, I designed the native iOS and Android apps, built with Capacitor and shipped 3 weeks later.",
         images: [
           { src: "/work/standup-republic/native-apps.png", alt: "Native iOS and Android app screens", caption: "Native app screens" },
         ],
@@ -233,45 +225,75 @@ export const caseStudies: Record<string, CaseStudy> = {
         { label: "Active development", value: "18+ months" },
         { label: "User roles", value: "3 + admin" },
       ],
-      text: "The web MVP launched in four weeks and the native apps followed three weeks later. The platform has been in active development for more than 18 months. {{TODO: any other real outcome you can share}}",
+      text: "The web MVP launched in four weeks and the native apps followed three weeks later. The platform has been in active development for more than 18 months.",
     },
-    learnings: ["{{TODO: what you would do next or what you learned (2–3 short points)}}"],
+    learnings: [],
   },
 
   // ── Dashboards & Design System ─────────────────────────────────────────────
   "dashboards-design-system": {
     summary:
       "I have designed hundreds of admin dashboards. This is how I approach data-dense interfaces, and the component systems that keep them consistent.",
-    team: "{{TODO: typical team setup}}",
-    timeline: "{{TODO: period}}",
-    platforms: "{{TODO: web, desktop, tablet…}}",
-    overview: "{{TODO: 2–3 sentences on your dashboard and design system work}}",
-    problem: "{{TODO: what makes admin UIs hard for the people who use them every day}}",
-    myRole: "{{TODO: what you personally owned (dashboards, component library, documentation) and who you worked with}}",
+    team: "Usually the only designer, working with PMs and developers",
+    timeline: "Hundreds of dashboards across 15+ years",
+    platforms: "Web apps and admin panels",
+    overview:
+      "Most of the products I design have an admin side: the place where operators, promoters or marketers manage data, users and money every day. Those screens get less attention than the marketing site, but they are where people spend their working hours. Examples on this page include the Standup Republic admin layer, the Persuava workspace, and the Ajándékbár, MatekVÁR and Zicer admin dashboards, plus client work under NDA.",
+    problem:
+      "Admin users work with large amounts of data and repeat the same tasks many times a day. Slow tables, unclear states and actions that are hard to find or easy to trigger by mistake cost them time and lead to errors.",
+    myRole:
+      "I design the dashboards end to end and the component library they are built from, usually as the only designer, working with a PM and the developers who implement them.",
     process: [
-      { step: "Discovery", detail: "{{TODO}}" },
-      { step: "Flows", detail: "{{TODO}}" },
-      { step: "Wireframes", detail: "{{TODO}}" },
-      { step: "UI", detail: "{{TODO}}" },
-      { step: "Handoff", detail: "{{TODO}}" },
+      {
+        step: "Discovery",
+        detail: "Start from the tasks people repeat every day and the data they need for each one, not from the database tables.",
+      },
+      {
+        step: "Flows",
+        detail: "Map the main jobs (find, review, edit, approve, export) and the roles that can do each of them.",
+      },
+      {
+        step: "Wireframes",
+        detail: "Lay out density and hierarchy first: what has to be visible at a glance, and what can sit one click away.",
+      },
+      {
+        step: "UI",
+        detail: "Build the screens from shared components so every table, filter and form behaves the same way across the product.",
+      },
+      {
+        step: "Handoff",
+        detail: "Annotated screens and specs in Figma Dev Mode, built from the shared component library, with Loom walkthroughs for complex flows and design reviews of the implementation during development.",
+      },
     ],
     decisions: [
       {
         title: "Tables",
-        why: "{{TODO: how you design data tables (density, sorting, column control, row actions)}}",
+        why: "Tables carry most of the work in an admin UI, so they get the most care: readable density, sorting and column control where it helps, and row actions that are easy to reach without cluttering every row.",
         images: [
           { src: "/work/dashboards-design-system/table-states.png", alt: "Table component states", caption: "Table component states" },
         ],
       },
-      { title: "Filters & search", why: "{{TODO}}" },
-      { title: "Bulk actions", why: "{{TODO}}" },
-      { title: "Empty, loading and error states", why: "{{TODO}}" },
-      { title: "Roles & permissions", why: "{{TODO}}" },
+      {
+        title: "Filters & search",
+        why: "Filters stay visible and show what is currently applied, so people always know why they are seeing the rows they see.",
+      },
+      {
+        title: "Bulk actions",
+        why: "Selecting many rows should make the next step obvious, and destructive actions always ask for confirmation.",
+      },
+      {
+        title: "Empty, loading and error states",
+        why: "Every view is designed for no data, slow data and failed data, not only for the happy path with perfect sample content.",
+      },
+      {
+        title: "Roles & permissions",
+        why: "Different roles see different actions. It should be clear what a person can do, and what they cannot do and why.",
+      },
     ],
     sections: [
       {
         heading: "Component library",
-        body: "{{TODO: tokens, variants, and how components are documented in Figma}}",
+        body: "Dashboards are built from a component library in Figma: tokens for color, type and spacing, components with variants for each state, and usage notes the developers can follow.",
         images: [
           { src: "/work/dashboards-design-system/component-overview.png", alt: "Component library overview", caption: "Component overview" },
           { src: "/work/dashboards-design-system/token-sheet.png", alt: "Design token sheet", caption: "Token sheet" },
@@ -279,16 +301,20 @@ export const caseStudies: Record<string, CaseStudy> = {
       },
       {
         heading: "Examples",
-        body: "{{TODO: 2–3 NDA-safe dashboard examples, blurred where needed}}",
+        body: "The Standup Republic admin layer ties together comedians, promoters, events and payouts. The Persuava workspace organises AI-generated content by campaign, output type and product. Ajándékbár's admin dashboard runs a three-tier gift card platform, and MatekVÁR's admin manages an edtech product for students, parents and teachers, and Zicer has its own admin side as well. Other dashboards are client work under NDA.",
         images: [
-          { src: "/work/dashboards-design-system/dashboard-example-1.png", alt: "Dashboard example 1" },
-          { src: "/work/dashboards-design-system/dashboard-example-2.png", alt: "Dashboard example 2" },
-          { src: "/work/dashboards-design-system/dashboard-example-3.png", alt: "Dashboard example 3" },
+          { src: "/projects/standup-republic.webp", alt: "Standup Republic", caption: "Standup Republic" },
+          { src: "/projects/persuava.webp", alt: "Persuava", caption: "Persuava" },
+          { src: "/work/dashboards-design-system/ajandekbar-admin.png", alt: "Ajándékbár admin dashboard", caption: "Ajándékbár admin" },
+          { src: "/work/dashboards-design-system/matekvar-admin.png", alt: "MatekVÁR admin dashboard", caption: "MatekVÁR admin" },
+          { src: "/work/dashboards-design-system/zicer-admin.png", alt: "Zicer admin dashboard", caption: "Zicer admin" },
+          { src: "/work/dashboards-design-system/dashboard-example-1.png", alt: "Dashboard example (NDA, blurred)" },
+          { src: "/work/dashboards-design-system/dashboard-example-2.png", alt: "Dashboard example (NDA, blurred)" },
         ],
       },
     ],
-    outcome: { metrics: [], text: "{{TODO: real outcomes only}}" },
-    learnings: ["{{TODO}}"],
+    outcome: { metrics: [], text: "" },
+    learnings: [],
   },
 }
 

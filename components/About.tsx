@@ -3,8 +3,6 @@ import { existsSync } from "fs"
 import path from "path"
 import Link from "next/link"
 
-import { SHOW_DRAFTS } from "@/lib/draft"
-
 const expertise = [
   "Product design",
   "Design systems",
@@ -127,11 +125,6 @@ export default function About() {
                   copy exploration and fast prototyping, so more time goes into
                   the decisions that matter.
                 </p>
-                {SHOW_DRAFTS && (
-                  <p className="mt-2 text-xs rounded bg-yellow-400/10 text-yellow-300 outline-1 outline-dashed outline-yellow-400/40 px-1">
-                    {"{{TODO: Amar to confirm the exact AI use cases}}"}
-                  </p>
-                )}
               </div>
             </div>
 
